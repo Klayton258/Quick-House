@@ -1,0 +1,192 @@
+/*import other stylesheets*/
+@import "lightslider.css";
+@import "presets/navbar.css";
+/*@import "bootstrap.min.css";*/
+/*import other stylesheets*/
+
+:root{
+    --teal: #00B288;
+    --cyan: #00D7DF;
+    --gray: #5E5E5E;
+    --white01: #ECECEC;
+}
+
+body{
+    background-color: #edf2f7;
+}
+
+/*======================================*/
+/*    Home Nav Start  */
+/*======================================*/
+.nav-background{
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.95)), url('../componets/images/navbar.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.nav-title-begin{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: var(--bs-white);
+
+}
+.nav-button-begin{
+    width: 120px;
+    padding: 5px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 1px solid var(--teal);
+    background: transparent;
+    color: var(--bs-white);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.nav-button-begin span{
+    background: var(--teal);
+    height: 0%;
+    width: 100%;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 1s;
+}
+.nav-button-begin:hover span{
+    height: 100%;
+}
+.nav-button-begin:hover{
+    border: none;
+}
+/*======================================*/
+/*    Home Nav End  */
+/*======================================*/
+
+
+.selection-nav{
+    scroll-snap-type: x mandatory;
+    display: flex;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    max-height: 100px;
+    margin-bottom: 5px;
+}
+.selection-nav::-webkit-scrollbar{
+    /*margin-top: 20px;*/
+    width: 0;
+    /*height: 5px;*/
+}
+/*.selection-nav::-webkit-scrollbar-track{*/
+/*    border-radius: 10px;*/
+/*    height: 2px;*/
+/*    !*box-shadow: inset;*!*/
+/*}*/
+/*.selection-nav::-webkit-scrollbar-thumb{*/
+/*    border-radius: 50px;*/
+/*    background-color: #a0aec0;*/
+
+/*}*/
+
+.hover-div {
+    position: absolute;
+    background-color: #a0aec0;
+    z-index: 10000;
+    min-height: 200px;
+}
+.selection-nav .select-item{
+    scroll-snap-align: start;
+    text-align: center;
+    border: black;
+    background-color: #e2e8f0;
+    min-width: 120px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+}
+
+.cS-hidden {
+    height: 1px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    overflow: hidden;
+}
+/*======================================*/
+/*    Card sliders   */
+/*======================================*/
+.card_slider{
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+}
+.card-slide{
+    min-width: 200px;
+    max-width: 300px;
+    min-height: 200px;
+    max-height: 200px;
+    transition: 0.5s ease-in-out;
+}
+ul li a{
+    text-decoration: none;
+    text-underline: none;
+}
+.card-slide:hover{
+    transform: translateY(-2px);
+}
+.card-slide:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 164, 51, 0.5), rgba(0, 190, 141, 0.75));
+    z-index: 2;
+    transition: 0.5s all;
+    opacity: 0%;
+}
+.card-slide:hover:before{
+    opacity: 1;
+}
+.hover-btn{
+    display: none;
+    position: absolute;
+    z-index: 10;
+    min-height: 200px;
+    max-height: 600px;
+}
+.card-textt{
+    padding-left: 20px;
+    color: black;
+    font-weight: 400;
+    font-size: 15px;
+    position: relative;
+    opacity: 0;
+    z-index: 3;
+    transform: translateY(-80px);
+    transition: 0.5s ease-in-out;
+}
+.card-slide:hover .card-textt{
+    opacity: 1;
+    cursor: pointer;
+}
+.card-type{
+    color: var(--teal);
+}
+
+.banner{
+    max-height: 400px;
+    min-height: 200px;
+    background-image: url('../componets/images/navbar.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
