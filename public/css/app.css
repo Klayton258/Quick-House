@@ -1,11 +1,12 @@
 /*import other stylesheets*/
 @import "lightslider.css";
 @import "presets/navbar.css";
+@import "house.css";
 /*@import "bootstrap.min.css";*/
 /*import other stylesheets*/
 
 :root{
-    --teal: #00B288;
+    --teal: #00daa7;
     --cyan: #00D7DF;
     --gray: #5E5E5E;
     --white01: #ECECEC;
@@ -79,21 +80,21 @@ body{
     max-height: 100px;
     margin-bottom: 5px;
 }
-.selection-nav::-webkit-scrollbar{
-    /*margin-top: 20px;*/
-    width: 0;
+::-webkit-scrollbar{
+    margin-top: 20px;
+    width: 10px;
     /*height: 5px;*/
 }
-/*.selection-nav::-webkit-scrollbar-track{*/
-/*    border-radius: 10px;*/
-/*    height: 2px;*/
-/*    !*box-shadow: inset;*!*/
-/*}*/
-/*.selection-nav::-webkit-scrollbar-thumb{*/
-/*    border-radius: 50px;*/
-/*    background-color: #a0aec0;*/
+::-webkit-scrollbar-track{
+    border-radius: 10px;
+    height: 2px;
+    box-shadow: inset;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 50px;
+    background-color: var(--teal);
 
-/*}*/
+}
 
 .hover-div {
     position: absolute;
@@ -178,15 +179,45 @@ ul li a{
     opacity: 1;
     cursor: pointer;
 }
+
+/*======================================*/
+/*    Card Products   */
+/*======================================*/
+.containe{
+    margin: 20px;
+    margin-top: 60px;
+
+}
 .card-type{
-    color: var(--teal);
+    color: var(--white01);
+    font-size: 0.8rem;
+    padding-left: 0px;
+    margin-bottom: 0px;
+}
+.card-text{
+    font-size: 0.8rem;
+    padding-right: 0px;
+    align-self: center;
+}
+.card-body{
+    background-color: var(--teal);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.card{
+    /*border-radius: 50px;*/
+    border-top-right-radius: 10px;
+
 }
 
+
 .banner{
-    max-height: 400px;
+    margin-bottom: 150px;
+    height: 300px;
     min-height: 200px;
-    background-image: url('../componets/images/navbar.jpg');
+    background-image: linear-gradient(rgba(12, 12, 12, 0.75), rgba(12, 12, 12, 0.25)), url('../componets/images/navbar.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
+    background-size: cover;
 }

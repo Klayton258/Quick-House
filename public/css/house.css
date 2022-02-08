@@ -1,0 +1,237 @@
+.row-house{
+    margin: 10px;
+}
+.house-images{
+    display: flex;
+    flex-direction: column;
+}
+.house-description{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+ul li img{
+    width: 100%;
+    height: 50%;
+}
+/*--------------------------------*/
+/*        House Type*/
+/*--------------------------------*/
+.house-type{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 500px;
+    border: 3px solid #00c59d;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.house-type-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 40%;
+    height: 100%;
+    background-color: #00c59d;
+}
+.house-type-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 60%;
+}
+
+.house-type-3{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+/*--------------------------------*/
+/*        House Type*/
+/*--------------------------------*/
+
+/*--------------------------------*/
+/*        House ROOMS*/
+/*--------------------------------*/
+.house-rooms{
+    margin-top: 20px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 200px;
+    border: 3px solid #00c59d;
+    font-size: 18px;
+    font-weight: bold;
+}
+.rooms{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 30%;
+    height: 100%;
+    background-color: #00c59d;
+    font-size: 15px;
+}
+.rooms-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 70%;
+    font-size: 12px;
+}
+/*--------------------------------*/
+/*        House ROOMS     */
+/*--------------------------------*/
+
+/*--------------------------------*/
+/*        House OTHERS    */
+/*--------------------------------*/
+.house-type-4{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 90%;
+    margin-top: 20px;
+    border: 3px solid #00c59d;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.house-type-5{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 10%;
+    height: 100%;
+    background-color: #00c59d;
+}
+.house-type-6{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    font-size: 12px;
+}
+.house-textarea{
+    margin-top: 20px;
+}
+/*--------------------------------*/
+/*        House PRICE N CONTACT */
+/*--------------------------------*/
+.house-price{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 40px;
+    margin-top: 30px;
+    align-self: center;
+}
+
+.house-price-0{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 500px;
+    border: 3px solid #00c59d;
+    font-size: 15px;
+    font-weight: bold;
+}
+.house-price-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 60%;
+}
+.house-price-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 40%;
+    height: 100%;
+    background-color: #00c59d;
+}
+.house-price-link{
+    text-decoration: none;
+    text-underline: none;
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+/*--------------------------------*/
+/*        House PRICE N CONTACT */
+/*--------------------------------*/
+
+.sugetions-text{
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-top: 20px;
+    color: #a0aec0;
+}
+
+.house-sugestions{
+    margin-top: 100px;
+    height: 400px;
+    width: 100%;
+    margin-bottom: 100px;
+    background-image: linear-gradient(rgba(100,100,100,0.99), rgba(100,100,100,0.65)), url("../componets/images/img-2.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.house-sugestions{
+    display: inline-block;
+
+}
+.sugetions-row{
+    margin-right: 0px;
+    padding-left: 150px;
+}
+
+@media (min-width: 550px) and (max-width: 920px) {
+.row-house{
+    margin: 0px;
+}
+.house-type-3{
+    width: 65%;
+}
+}
+
+@media (max-width: 540px) {
+.row-house{
+    margin: 0px;
+}
+.house-type{
+    width: 300px;
+    }
+    .house-type-3{
+        width: 80%;
+    }
+    .house-rooms{
+        width: 120px;
+    }
+    .house-price-0{
+        width: 300px;
+    }
+    .sugetions-row{
+        margin-right: 0px;
+        padding-left: 20px;
+    }
+}
+@media (max-width: 380px) {
+    .house-type-3 {
+        width: 100%;
+    }
+}
