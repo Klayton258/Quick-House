@@ -48,7 +48,7 @@
                     <div class="house-price col-lg-7 col-md-12 col-sm-12">
                         <div class="house-price-0 row">
                             <div class="house-price-1">100.000 Mzn</div>
-                            <div class="house-price-2"><a class="house-price-link" href="#"> Contact</a></div>
+                            <div class="house-price-2"><a class="house-price-link" href="{{url('/contact')}}"> Contact</a></div>
                         </div>
                     </div>
                 </div>
