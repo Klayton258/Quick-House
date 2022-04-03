@@ -56,3 +56,13 @@ $(document).ready(function() {
         }
     });
 });
+
+config = {
+
+    enable: ["2022-03-30", "2022-05-21", "2022-06-08", new Date(2022, 8, 9) ],
+    enableTime: true,
+    minTime: "12:00",
+    maxTime: "20:30",
+}
+
+flatpickr("input[type=datetime-local]", config);

@@ -6,7 +6,7 @@
 /*import other stylesheets*/
 
 :root{
-    --teal: #00daa7;
+    --teal: #009573;
     --cyan: #00D7DF;
     --gray: #5E5E5E;
     --white01: #ECECEC;
@@ -136,7 +136,6 @@ body{
 }
 ul li a{
     text-decoration: none;
-    text-underline: none;
 }
 .card-slide:hover{
     transform: translateY(-2px);
@@ -181,6 +180,38 @@ ul li a{
 }
 
 /*======================================*/
+/*    HOME WELCOME   */
+/*======================================*/
+.rowcontenthome{
+    display: flex;
+    background-color: #e7e7e77a;
+    padding-bottom: 140px;
+}
+.marginTotop{
+    margin-top: 200px;
+}
+
+.descriphome{
+    align-items: center;
+    padding-top: 60px;
+}
+
+.imageshome{
+position: relative;
+padding-bottom: 260px;
+padding-top: 50px;
+}
+
+.imageshome img{
+    width: 60%;
+    position: absolute;
+}
+.imghome2{
+    left: 12rem;
+    top: 8rem;
+    margin-bottom: 100px;
+}
+/*======================================*/
 /*    Card Products   */
 /*======================================*/
 .containe{
@@ -209,15 +240,146 @@ ul li a{
     border-top-right-radius: 10px;
 
 }
-
+.containe .row div a{
+    text-decoration: none;
+    text-decoration-line: none;
+    color: black;
+}
+.containe .row div a p{
+    color: gold;
+}
 
 .banner{
-    margin-bottom: 150px;
+    /* margin-bottom: 150px; */
     height: 300px;
     min-height: 200px;
-    background-image: linear-gradient(rgba(12, 12, 12, 0.75), rgba(12, 12, 12, 0.25)), url('../componets/images/navbar.jpg');
+    background-image: linear-gradient(rgba(12, 12, 12, 0.815), rgba(12, 12, 12, 0.726)), url('../componets/images/navbar.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
+}
+
+
+/*======================================*/
+/*    SLIDE TOP HOUSES  */
+/*======================================*/
+.carrouselhome {
+    padding-bottom: 50px;
+    text-align: center;
+
+}
+.newhomestitle{
+    background-color: hsla(0, 0%, 91%, 0.637);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.carrouselhome img{
+    max-height: 350px;
+    min-height: 200px;
+    border-radius: 10px;
+}
+/*======================================*/
+/*    END SLIDE TOP HOUSES    */
+/*======================================*/
+
+@media (min-width: 550px) and (max-width: 920px) {
+    .rowcontenthome{
+        display: flex;
+        background-color: #f1f1f17a;
+        padding-bottom: 40px;
+    }
+    .marginTotop{
+        margin-top: 100px;
+    }
+
+    .descriphome{
+        align-items: center;
+        padding-top: 20px;
+    }
+
+    .imageshome{
+    position: relative;
+    padding-bottom: 260px;
+    padding-top: 50px;
+    }
+
+    .imageshome img{
+        width: 50%;
+        position: absolute;
+    }
+    .imghome2{
+        left: 8rem;
+        top: 6rem;
+        margin-bottom: 10px;
+    }
+    .carrouselhome img{
+        max-height: 230px;
+        min-height: 200px;
+        border-radius: 8px;
+    }
+
+
+}
+
+@media (max-width: 550px) {
+    .rowcontenthome{
+        display: flex;
+        background-color: #eeeeee7a;
+        padding-bottom: 1px;
+    }
+    .marginTotop{
+        margin-top: 100px;
+    }
+    .descriphome h1{
+        font-size: 15px;
+    }
+    .descriphome{
+        align-items: center;
+        padding-top: 5px;
+        font-size: 10px;
+    }
+
+    .imageshome{
+    position: relative;
+    padding-bottom: 180px;
+    padding-top: 50px;
+    }
+
+    .imageshome img{
+        margin-left: 1rem;
+        width: 49%;
+        position: absolute;
+    }
+    .imghome2{
+        left: 5rem;
+        top: 5rem;
+        margin-bottom: 10px;
+    }
+
+/*======================================*/
+/*    SLIDE TOP HOUSES  */
+/*======================================*/
+.carrouselhome {
+    padding-bottom: 50px;
+    text-align: center;
+
+}
+.newhomestitle{
+    background-color: hsla(0, 0%, 91%, 0.637);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.carrouselhome img{
+    max-height: 180px;
+    min-height: 140px;
+    border-radius: 8px;
+}
+/*======================================*/
+/*    END SLIDE TOP HOUSES    */
+/*======================================*/
 }

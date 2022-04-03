@@ -20,6 +20,30 @@
             </div>
         </nav>
 
+        <div class="flex-container">
+            <div class="container container-sm container-md">
+                <h1>Request Visit</h1>
+
+                <p>Fill the form with your real data, after all you will receive email response! Thanks</p>
+
+                <form action="{{ url('/home')}}" method="post">
+                    <div class="label">Name Complete</div>
+                    <input type="text" name="name" class="form-control">
+
+                    <div class="label">email</div>
+                    <input type="text" name="email" class="form-control">
+
+                    <div class="label">contact</div>
+                    <input type="text" name="contact" class="form-control">
+
+                    <div class="label">Visit Date</div>
+                    <input type="date" name="date" class="form-control">
+                    <div class="btn btn-primary mt-3">request</div>
+                </form>
+
+            </div>
+
+        </div>
 
 
     </main>
