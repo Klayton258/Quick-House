@@ -14,7 +14,7 @@
                 </button>
                 <!--Item List-->
                 <ul id="list">
-                    <li><a href="#">Regist</a></li>
+                    <li><a href="" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@getbootstrap">Subscribe</a></li>
                 </ul>
             </div>
         </nav>
@@ -46,11 +46,14 @@
                     </ul>
 
                     <div class="house-price col-lg-7 col-md-12 col-sm-12">
-                        <div class="house-price-0 row">
-                            <div class="house-price-1">100.000 Mzn</div>
-                            <div class="house-price-2"><a class="house-price-link" href="{{url('/contact')}}"> Contact</a></div>
+                        <a class="house-price-link" href="" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">
+                            <div class="house-price-0 row">
+                                <div class="house-price-1">100.000 Mzn</div>
+                                <div class="house-price-2">Visit</div>
+                            </div>
+                            <span style="padding-top: 9px; display:flex; font-size: 11px; justify-content: center">click here to request a visit</span>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 {{--                -----------------------------------------------------}}
                 {{--                            HOUSE IMAGES--}}
@@ -102,7 +105,7 @@
 
                     <div class="house-textarea">
                         <p class="house-text-description">Description</p>
-                        <textarea class="form-control" rows="9" cols="50"></textarea>
+                        <textarea class="form-control" rows="9" cols="50" disabled>House in perfect conditions, visits can be marked above</textarea>
                     </div>
                 </div>
                 {{--                -----------------------------------------------------}}
@@ -159,6 +162,95 @@
                 </ul>
             </div>
         </section>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Request Visit</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{{ url('/house') }}">
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Name Complete:</label>
+            <input type="text" class="form-control" name="name" id="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Email:</label>
+            <input type="email" class="form-control" name="email" id="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Contact:</label>
+            <input type="tel" class="form-control" name="contact" id="contact" required>
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Visit Date:</label>
+            <input type="datetime-local" class="form-control" name="visitdate" id="visitdate" required placeholder="select date">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancel</button>
+            <button type="submit" class="btn btn-primary">send</button>
+        </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+      <div class="modal-content" style="background-color: #8b8b8b">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Subscribe</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Name Complete:</label>
+              <input type="text" class="form-control" name="subscibername" id="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Email:</label>
+              <input type="email" class="form-control" name="subsciberemail" id="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Contact:</label>
+              <input type="tel" class="form-control" name="subscibercontact" id="contact" required>
+            </div>
+            <div class="row">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Femenine
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Male
+                </label>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancel</button>
+          <button type="button" class="btn btn-primary">subscribe</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
     </main>
 

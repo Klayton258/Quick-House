@@ -162,12 +162,23 @@ ul li img{
     width: 40%;
     height: 100%;
     background-color: #00c59d;
+    color: white;
 }
 .house-price-link{
     text-decoration: none;
-    text-underline: none;
     margin: 0;
     padding: 0;
+    color: black;
+}
+.house-price a:hover .house-price-0{
+    color: white;
+    background-color: #00c59d;
+}
+.house-price a:hover span{
+    color: black;
+}
+.house-price a:hover .house-price-2{
+    background-color: white;
     color: black;
 }
 /*--------------------------------*/
@@ -207,6 +218,30 @@ ul li img{
 .house-type-3{
     width: 65%;
 }
+
+}
+
+@media (min-width: 1100px){
+    .row-house{
+        margin: 0px;
+    }
+    .house-type{
+        width: 400px;
+        }
+        .house-type-3{
+            width: 90%;
+        }
+        .house-rooms{
+            width: 160px;
+        }
+        .house-price-0{
+            width: 300px;
+        }
+        .sugetions-row{
+            margin-right: 0px;
+            padding-left: 20px;
+        }
+
 }
 
 @media (max-width: 540px) {
@@ -217,10 +252,10 @@ ul li img{
     width: 300px;
     }
     .house-type-3{
-        width: 80%;
+        width: 100%;
     }
     .house-rooms{
-        width: 120px;
+        width: 140px;
     }
     .house-price-0{
         width: 300px;
@@ -235,3 +270,24 @@ ul li img{
         width: 100%;
     }
 }
+@media (min-width: 1360px) {
+    .row-house{
+        margin: 0px;
+    }
+    .house-type{
+        width: 600px;
+        }
+        .house-type-3{
+            width: 70%;
+        }
+        .house-rooms{
+            width: 190px;
+        }
+        .house-price-0{
+            width: 500px;
+        }
+        .sugetions-row{
+            margin-right: 0px;
+            padding-left: 20px;
+        }
+    }
