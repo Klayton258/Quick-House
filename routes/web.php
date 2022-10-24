@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HouseAdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +15,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
 
-Route::get('/house', function () {
-    return view('house');
-});
 
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('/', 'Controller@index')->name('home');
+
+Route::get('/house/{id}', 'Controller@house')->name('house');
+
+Route::get('/contact', 'Controller@contact')->name('contact');
+
+
+
+
+
+// ================================== ADMIN ROUTES =========================
+Route::get('/dashboard/home', 'AdminController@index')->name('admin');
+
+Route::get('/dashboard/cretehouse', [HouseAdminController::class,'createhouse'])->name('createhouse');
+
+Route::post('/dashboard/newhouse', [HouseAdminController::class,'newhouse'])->name('newhouse');

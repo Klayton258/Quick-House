@@ -1,3 +1,7 @@
+<?php
+ $images = explode('|', $house[0]->images);
+?>
+
 @extends('layouts/layout_main')
 @section('content')
     <main>
@@ -26,29 +30,21 @@
 {{--                -----------------------------------------------------}}
                 <div class="house-images col-lg-7 col-md-12 col-sm-12">
                     <ul id="imageGallery">
-                        <li data-thumb="{{asset('componets/images/img-4.jpg')}}" data-src="{{asset('componets/images/img-4.jpg')}}">
-                            <img src="{{asset('componets/images/img-4.jpg')}}"/>
+
+                        @foreach ( array_slice($images,0,count($images)-1 ) as $image)
+
+                        <li data-thumb="{{asset('images/houses/'.$house[0]->path.'/'.$image)}}" data-src="{{asset('images/houses/'.$house[0]->path.'/'.$image)}}">
+                            <img src="{{asset('images/houses/'.$house[0]->path.'/'.$image)}}"/>
                         </li>
-                        <li data-thumb="{{asset('componets/images/img-4.jpg')}}" data-src="{{asset('componets/images/img-6.jpg')}}">
-                            <img src="{{asset('componets/images/img-4.jpg')}}" />
-                        </li>
-                        <li data-thumb="{{asset('componets/images/img-4.jpg')}}" data-src="{{asset('componets/images/img-5.jpg')}}">
-                            <img src="{{asset('componets/images/img-4.jpg')}}" />
-                        </li>
-                        <li data-thumb="{{asset('componets/images/img-4.jpg')}}" data-src="{{asset('componets/images/img-3.jpeg')}}">
-                            <img src="{{asset('componets/images/img-4.jpg')}}" />
-                        </li>
-                        <li data-thumb="{{asset('componets/images/img-4.jpg')}}" data-src="{{asset('componets/images/img-3.jpeg')}}">
-                            <img src="{{asset('componets/images/img-4.jpg')}}" />
-                        <li data-thumb="{{asset('componets/images/img-4.jpg')}}" data-src="{{asset('componets/images/img-3.jpeg')}}">
-                            <img src="{{asset('componets/images/img-4.jpg')}}" />
-                        </li>
+
+                        @endforeach
+
                     </ul>
 
                     <div class="house-price col-lg-7 col-md-12 col-sm-12">
                         <a class="house-price-link" href="" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">
                             <div class="house-price-0 row">
-                                <div class="house-price-1">100.000 Mzn</div>
+                                <div class="house-price-1">{{$house[0]->price}} Mzn</div>
                                 <div class="house-price-2">Visit</div>
                             </div>
                             <span style="padding-top: 9px; display:flex; font-size: 11px; justify-content: center">click here to request a visit</span>
@@ -64,48 +60,48 @@
                 {{--                -----------------------------------------------------}}
                 <div class="house-description col-lg-5 col-md-12 col-sm-12 p-5">
                     <div class="house-type row">
-                        <div class="house-type-1">Rent</div>
-                        <div class="house-type-2"> House Type 5</div>
+                        <div class="house-type-1">Rent {{$house[0]->type_id}}</div>
+                        <div class="house-type-2">{{$house[0]->name}}</div>
                     </div>
 
                     <div class="house-type-3 row justify-content-between">
                         <div class="house-rooms">
-                            <div class="rooms">5</div>
+                            <div class="rooms">{{$house[0]->rooms}}</div>
                             <div class="rooms-title">Rooms</div>
                         </div>
                         <div class="house-rooms">
-                            <div class="rooms">1</div>
+                            <div class="rooms">{{$house[0]->suit}}</div>
                             <div class="rooms-title">Suit</div>
                         </div>
                     </div>
                     <div class="house-type-3 row justify-content-between">
                         <div class="house-rooms">
-                            <div class="rooms">1</div>
-                            <div class="rooms-title">Cozinha</div>
+                            <div class="rooms">{{$house[0]->kitchen}}</div>
+                            <div class="rooms-title">Kitchen</div>
                         </div>
                         <div class="house-rooms">
-                            <div class="rooms">2</div>
+                            <div class="rooms">{{$house[0]->wc}}</div>
                             <div class="rooms-title">WC</div>
                         </div>
                     </div>
                     <div class="house-type-3 row justify-content-between">
                         <div class="house-rooms">
-                            <div class="rooms">1</div>
+                            <div class="rooms">{{$house[0]->living_room}}</div>
                             <div class="rooms-title">Living room</div>
                         </div>
                         <div class="house-rooms">
-                            <div class="rooms">2</div>
+                            <div class="rooms">{{$house[0]->garage}}</div>
                             <div class="rooms-title">Garage</div>
                         </div>
                     </div>
                     <div class="house-type-4 row">
                         <div class="house-type-5">Loc</div>
-                        <div class="house-type-6"> Bairro central B Av.Agostinho neto com a Resistencia</div>
+                        <div class="house-type-6"> {{$house[0]->location}}</div>
                     </div>
 
                     <div class="house-textarea">
                         <p class="house-text-description">Description</p>
-                        <textarea class="form-control" rows="9" cols="50" disabled>House in perfect conditions, visits can be marked above</textarea>
+                        <textarea class="form-control" rows="9" cols="50" disabled>{{$house[0]->description}}</textarea>
                     </div>
                 </div>
                 {{--                -----------------------------------------------------}}
@@ -188,7 +184,8 @@
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Visit Date:</label>
-            <input type="datetime-local" class="form-control" name="visitdate" id="visitdate" required placeholder="select date">
+            {{-- <input type="datetime-local" id="timesbtn" onclick="timesWWW('2022-10-10','2022-10-25','2022-10-29')" class="form-control" name="visitdate" id="visitdate" required placeholder="select date"> --}}
+            <input type="datetime-local" id="timesbtn" data-visits="{{$house[0]->visit_times}}" class="form-control" name="visitdate" id="visitdate" required placeholder="select date">
           </div>
           <div class="mb-3">
             <label for="message-text" class="col-form-label">Message:</label>
@@ -251,8 +248,44 @@
     </div>
   </div>
 
-
     </main>
+<script src="text/javascipt">
+    // function timesBtn() {
+    // time2 = "2022-07-18";
+    // time1 = "2022-09-14";
+    //     alert("jksdb")
+    // time3 = <?php echo (json_encode($house[0]->visit_times)); ?>;
+    // var time3 = JSON.parse("<?php echo json_encode($house[0]->visit_times); ?>");
+    //     alert(time3)
+    // config = {
+    //   enable: [time1, time2, time3,
+    //       new Date(time3.split("-",3)[0], time1.split("-",3)[1], time3.split("-",3)[2])
+    //   ],
+    //   enableTime: true,
+    //   minTime: "12:00",
+    //   maxTime: "20:30"
+    // };
+    // flatpickr("input[type=datetime-local]", config);
+//   }
 
+// function timesWWW(time1,time2,time3){
+//     // var time3 = JSON.parse("<?php echo json_encode($house[0]->visit_times); ?>");
+
+//     alert("jhbasjfhabj")
+//     // time1= "2022-07-15"
+//     // time2= "2022-07-18"
+//     // time3= "2022-07-10"
+
+//     // alert("jkasnd")
+//     config = {
+//         enable: [time1,time2, time3, new Date(2022, 8, 9) ],
+//         enableTime: true,
+//         minTime: "12:00",
+//         maxTime: "20:30",
+//     }
+
+//     flatpickr("input[type=datetime-local]", config);
+// }
+</script>
 
 @endsection

@@ -17,9 +17,9 @@
                         <!--Item List-->
                         <ul id="list">
                             <li><a href="#">Home</a></li>
-                            <li><a href="#">Services</a></li>
+                            {{-- <li><a href="#">Services</a></li> --}}
                             <li><a href="#">Contact</a></li>
-                            <li><a href="#">Info</a></li>
+                            {{-- <li><a href="#">Info</a></li> --}}
                             <li><a href="#">Subscribe</a></li>
                         </ul>
                     </div>
@@ -36,93 +36,31 @@
                 </div>
             </div>
         </div>
-        {{-- <div class="selection-nav mt-2">
-        <ul id="autoWidth" class="cs-hidden ms-lg-2 ms-sm-2 me-sm-2">
-        <li class="item-a">
-        <div class="btn select-item ms-2">casa T1</div>
-        </li>
-        <li class="item-b">
-        <div class="btn select-item ms-2">casa T6</div>
-        </li>
-        <li class="item-c">
-        <div class="btn select-item ms-2">casa T7</div>
-        </li>
-        <li class="item-d">
-        <div class="btn select-item ms-2">casa T2</div>
-        </li>
-        <li class="item-e">
-        <div class="btn select-item ms-2">casa T5</div>
-        </li>
-        <li class="item-f">
-        <div class="btn select-item ms-2">casa T1</div>
-        </li>
-        <li class="item-g">
-        <div class="btn select-item ms-2">casa T3</div>
-        </li>
-         </ul>
-         </div> --}}
-
 
         {{-- ================================ --}}
         {{-- cards slide Beggin --}}
         {{-- ================================ --}}
         <ul id="autoWidth" class="cs-hidden mt-5 ms-lg-2 ms-sm-2 me-sm-2">
+            @foreach ($houses as $house)
+                <?php $image = explode('|', $house->images) ?>
             <li class="item-a" alt="1">
-                <a href="{{ url('/house') }}">
+                <a href="{{ url('/house',['id'=>$house->id]) }}">
                     <div class="card card-slide">
-                        <img src="{{ asset('componets/images/navbar.jpg') }}" class="card-img-top card-image">
+                        <img src="{{ asset('images/houses/'.$house->path .'/'.$image[3]) }}" class="card-img-top card-image">
                         {{-- <div class="hover-btn"> --}}
-                        <div class="card-textt">
-                            Casa Tipo: 1 <br>
-                            Garagem: 2 carros <br>
-                            Bairro: Kumbeza, Rua da... <br>
-                            {{-- <div class="btn card-btn">view</div> --}}
-                            {{-- </div> --}}
+                            <div class="card-textt">
+                                {{$house->name}} <br>
+                                Garagem: {{$house->garage}} carros <br>
+                                Bairro: {{$house->location}} <br>
+                                {{-- <div class="btn card-btn">view</div> --}}
+                                {{-- </div> --}}
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
             </li>
-
-            <li class="item-b">
-                <div class="card card-slide">
-                    <img src="{{ asset('componets/images/navbar.jpg') }}" class="card-img-top card-image" alt="...">
-
-                </div>
-            </li>
-            <li class="item-c">
-                <div class="card card-slide">
-                    <img src="{{ asset('componets/images/navbar.jpg') }}" class="card-img-top card-image" alt="...">
-
-                </div>
-            </li>
-            <li class="item-d">
-                <div class="card card-slide">
-                    <img src="{{ asset('componets/images/navbar.jpg') }}" class="card-img-top card-image" alt="...">
-
-                </div>
-            </li>
-            <li class="item-e">
-                <div class="card card-slide">
-                    <img src="{{ asset('componets/images/navbar.jpg') }}" class="card-img-top card-image" alt="...">
-
-                </div>
-            </li>
-            <li class="item-f">
-                <div class="card card-slide">
-                    <img src="{{ asset('componets/images/navbar.jpg') }}" class="card-img-top card-image" alt="...">
-
-                </div>
-            </li>
-            <li class="item-g">
-                <div class="card card-slide">
-                    <img src="{{ asset('componets/images/navbar.jpg') }}" class="card-img-top card-image" alt="...">
-
-                </div>
-            </li>
+            @endforeach
         </ul>
-        {{-- ================================ --}}
-        {{-- cards slide Beggin --}}
-        {{-- ================================ --}}
+
 
 
         <div class="container mt-5 conthome">
@@ -144,28 +82,34 @@
             </div>
 
 
-
+            @if (sizeOf($outdoors) > 0)
             <div class="carrouselhome">
                 <div class="newhomestitle"> <h4>TOP NEW</h4></div>
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
+                        aria-label="Slide 2"></button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
+                        aria-label="Slide 3"></button>
                     </div>
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="{{ asset('componets/images/img-3.jpeg') }}" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{{ asset('componets/images/img-2.jpeg') }}" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{{ asset('componets/images/img-6.jpg') }}" class="d-block w-100" alt="...">
-                        </div>
+                        @php  $activo = 2; @endphp
+                        @foreach ($outdoors as $outdoor)
+                            @if ($activo == 2)
+                                @php $image = explode('|',$outdoor->images); @endphp
+                                    <div class="carousel-item active">
+                                        <img src="{{ asset('images/houses/'.$outdoor->path.'/'.$image[0]) }}" class="d-block w-100" alt="...">
+                                    </div>
+                                @php $activo = 1; @endphp
+                            @else
+                                @php $image = explode('|',$outdoor->images); @endphp
+                                <div class="carousel-item">
+                                    <img src="{{ asset('images/houses/'.$outdoor->path.'/'.$image[0]) }}" class="d-block w-100" alt="...">
+                                </div>
+                            @endif
+                        @endforeach
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                         data-bs-slide="prev">
@@ -173,12 +117,13 @@
                         <span class="visually-hidden">Previous</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="next">
+                    data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
             </div>
+            @endif
 
             {{-- ================================ --}}
             {{-- cards content --}}
@@ -186,21 +131,25 @@
             <div class="containe justify-content-between">
                 <div class="titlehoses"><h5 style="text-decoration: underline">Houses</h5></div>
                 <div class="row">
+                    @foreach ($houses as $house)
+                        <?php $cover = explode('|', $house->images, -1); ?>
                     <div class="col-lg-3 col-sm-12 col-md-3 mb-4">
-                        <a href="{{ url('/house') }}">
+                        <a href="{{ url('/house',['id'=>$house->id]) }}">
                             <div class="card">
-                                <img src="{{ asset('componets/images/navbar.jpg') }}" class="card-img-top" alt="...">
+                                <img src="{{ asset('images/houses/'.$house->path.'/'.$cover[0]) }}" class="card-img-top">
                                 <div class="card-body">
-                                    <h5 class="card-title">Casa T2</h5>
+                                    <h5 class="card-title">{{$house->name}}</h5>
                                     <div class="row">
-                                        <p class="card-text col text-start mb-0">19.000 mzn</p>
+                                        <p class="card-text col text-start mb-0">{{$house->price}} mzn</p>
                                         <p class="card-type col text-end">Project</p>
                                     </div>
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-3 col-sm-12 col-md-3 mb-4">
+                    @endforeach
+
+                    {{-- <div class="col-lg-3 col-sm-12 col-md-3 mb-4">
                         <a href="{{ url('/house') }}">
                         <div class="card">
                             <img src="{{ asset('componets/images/navbar.jpg') }}" class="card-img-top" alt="...">
@@ -213,91 +162,7 @@
                             </div>
                         </div>
                         </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-12 col-md-3 mb-4">
-                        <a href="{{ url('/house') }}">
-                        <div class="card">
-                            <img src="{{ asset('componets/images/navbar.jpg') }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Casa T6</h5>
-                                <div class="row">
-                                    <p class="card-text col text-start mb-0">4.000.000 mzn</p>
-                                    <p class="card-type col text-end">Sell</p>
-                                </div>
-                            </div>
-                        </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-12 col-md-3 mb-4">
-                        <a href="{{ url('/house') }}">
-                        <div class="card">
-                            <img src="{{ asset('componets/images/navbar.jpg') }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Casa T2</h5>
-                                <div class="row">
-                                    <p class="card-text col text-start mb-0">19.000 mzn</p>
-                                    <p class="card-type col text-end">Project</p>
-                                </div>
-                            </div>
-                        </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-12 col-md-3 mb-4">
-                        <a href="{{ url('/house') }}">
-                        <div class="card">
-                            <img src="{{ asset('componets/images/navbar.jpg') }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Casa T3</h5>
-                                <div class="row">
-                                    <p class="card-text col text-start mb-0">50.000 mzn</p>
-                                    <p class="card-type col text-end">Rent</p>
-                                </div>
-                            </div>
-                        </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-12 col-md-3 mb-4">
-                        <a href="{{ url('/house') }}">
-                        <div class="card">
-                            <img src="{{ asset('componets/images/navbar.jpg') }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Casa T6</h5>
-                                <div class="row">
-                                    <p class="card-text col text-start mb-0">4.000.000 mzn</p>
-                                    <p class="card-type col text-end">Sell</p>
-                                </div>
-                            </div>
-                        </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-12 col-md-3 mb-4">
-                        <a href="{{ url('/house') }}">
-                        <div class="card">
-                            <img src="{{ asset('componets/images/navbar.jpg') }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Casa T6</h5>
-                                <div class="row">
-                                    <p class="card-text col text-start mb-0">4.000.000 mzn</p>
-                                    <p class="card-type col text-end">Sell</p>
-                                </div>
-                            </div>
-                        </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-12 col-md-3 mb-4">
-                        <a href="{{ url('/house') }}">
-                        <div class="card">
-                            <img src="{{ asset('componets/images/navbar.jpg') }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Casa T2</h5>
-                                <div class="row">
-                                    <p class="card-text col text-start mb-0">19.000 mzn</p>
-                                    <p class="card-type col text-end">Project</p>
-                                </div>
-                            </div>
-                        </div>
-                        </a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             {{-- ================================ --}}

@@ -17,3 +17,15 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::namespace('Api')->name('api.')->group(function () {
+
+    // MANAGE HOUSE ROUTES-------------------------------------------------------------------------------------
+    Route::prefix('houses')->group(function () {
+        Route::get('/', 'HouseController@index')->name('houses');
+        Route::post('/newhouse', 'HouseController@newhouse');
+        Route::get('/house/{id}', 'HouseController@housebyid');
+        Route::delete('/delete/{id}', 'HouseController@delete');
+    });
+
+});
