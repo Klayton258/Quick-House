@@ -59,14 +59,13 @@ $(document).ready(function () {
 });
 $('#timesbtn').click(function times() {
   var times = $(this).attr('data-visits');
-  console.log(times.split('|'));
   var data = times.split('|');
   var dates = data.join(',');
   console.log(dates);
   config = {
-    enable: [dates],
+    enable: ["'" + dates + "'"],
     enableTime: true,
-    minTime: "12:00",
+    minTime: "10:00",
     maxTime: "16:30"
   };
   flatpickr("input[type=datetime-local]", config);

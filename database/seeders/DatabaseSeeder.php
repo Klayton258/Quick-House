@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         $types = [
-            ['type_name' => 'Sell','created_at'=> now(), 'updated_at'=> now()],
-            ['type_name' => 'Rent','created_at'=> now(), 'updated_at'=> now()],
+            ['type_name' => 'For Sale','created_at'=> now(), 'updated_at'=> now()],
+            ['type_name' => 'For Rent','created_at'=> now(), 'updated_at'=> now()],
             ['type_name' => 'Project','created_at'=> now(), 'updated_at'=> now()],
         ];
 
@@ -35,13 +35,13 @@ class DatabaseSeeder extends Seeder
             DB::table('outdoors')->insert($item);
         }
 
-        $promotion = [
-            ['pro_boolean' => 'false','pro_price' => 'none','created_at'=> now(), 'updated_at'=> now()],
-        ];
+        // $promotion = [
+        //     ['pro_boolean' => 'false','pro_price' => 'none','created_at'=> now(), 'updated_at'=> now()],
+        // ];
 
-        foreach($promotion as $item){
-            DB::table('promotions')->insert($item);
-        }
+        // foreach($promotion as $item){
+        //     DB::table('promotions')->insert($item);
+        // }
 
         $level = [
             ['level' => 'NEW','created_at'=> now(), 'updated_at'=> now()],
@@ -53,14 +53,16 @@ class DatabaseSeeder extends Seeder
             DB::table('levels')->insert($item);
         }
 
-        $times = [
-            ['time_1' => now(),'created_at'=> now(), 'updated_at'=> now()],
-            ['time_2' => '2022-10-21 12:15:25','created_at'=> now(), 'updated_at'=> now()],
-            ['time_3' => '2022-11-25 15:15:28','created_at'=> now(), 'updated_at'=> now()],
-        ];
+        // $roles = [
+        //     ['role_name' => 'CLIENT','created_at'=> now(), 'updated_at'=> now()],
+        //     ['role_name' => 'CREATE_HOUSE','created_at'=> now(), 'updated_at'=> now()],
+        //     ['role_name' => 'EDIT_HOUSE','created_at'=> now(), 'updated_at'=> now()],
+        //     ['role_name' => 'DELETE_HOUSE','created_at'=> now(), 'updated_at'=> now()],
+        //     ['role_name' => 'MANAGE_USERS','created_at'=> now(), 'updated_at'=> now()],
+        // ];
 
-        foreach($times as $item){
-            DB::table('times')->insert($item);
-        }
+        // foreach($roles as $item){
+        //     DB::table('roles')->insert($item);
+        // }
     }
 }

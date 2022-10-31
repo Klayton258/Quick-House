@@ -13,12 +13,12 @@ class TableRoles extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
-            $table->id();
-            $table->string('role_name');
-            $table->softDeletes();
-            $table->timestamps();
-            });
+        // Schema::create('roles', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->string('role_name');
+        //     $table->softDeletes();
+        //     $table->timestamps();
+        //     });
     }
 
     /**

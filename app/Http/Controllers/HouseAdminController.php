@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\API\ApiLogs;
+use App\Enum\RoleType;
+use App\Models\House;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
@@ -10,7 +13,12 @@ use Ramsey\Uuid\Uuid;
 
 class HouseAdminController extends Controller
 {
+    private $houses;
 
+    function __construct(House $houses)
+    {
+        $this->houses = $houses;
+    }
 
 
     function createhouse()
@@ -19,7 +27,19 @@ class HouseAdminController extends Controller
             'name'=> "Klayton Massamgo",
         ];
 
-        return view('admin.house.create',['user'=>$user]);
+        $types = Type::all();
+
+        return view('admin.house.create',['types'=>$types,'user'=>$user]);
+    }
+
+    function manageHouses(){
+
+        $houses = $this->houses::all();
+        $user=[
+            'name'=> "Klayton Massamgo",
+        ];
+
+        return view('admin.house.list',['houses'=>$houses,'user'=>$user]);
     }
 
 
@@ -82,6 +102,19 @@ class HouseAdminController extends Controller
             ApiLogs::apiLog('error','House Request: ',$e->getMessage());
 
         }
+
+    }
+
+    function viewHouse($id)
+    {
+
+        $house = $this->houses::find($id);
+        $user=[
+            'name'=> "Klayton Massamgo",
+        ];
+        $types = Type::all();
+
+        return view('admin.house.view',['house'=>$house,'types'=>$types, 'user'=>$user]);
 
     }
 
