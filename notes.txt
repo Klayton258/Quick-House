@@ -1,0 +1,16 @@
+
+Primeiro  actualizar middleware==========>>>>>>>>>>>>>>>>>======
+
+ php artisan make:middleware Language.php
+
+ - traz um file com a classe handle
+
+ --Next up, Add the middleware entry into the Kernel.php file
+
+ -----rodar esse comando para criar um controler de  language!
+
+ php artisan make:controller LanguageController
+
+colocar nas routas......
+
+Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
