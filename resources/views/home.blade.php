@@ -46,7 +46,7 @@
             <li class="item-a" alt="1">
                 <a href="{{ url('/house',['id'=>$house->id]) }}">
                     <div class="card card-slide">
-                        <img src="{{ asset('images/houses/'.$house->path .'/'.$image[3]) }}" class="card-img-top card-image">
+                        <img src="{{ asset('images/houses/'.$house->path .'/'.$image[0]) }}" class="card-img-top card-image">
                         {{-- <div class="hover-btn"> --}}
                             <div class="card-textt">
                                 {{$house->name}} <br>
@@ -129,7 +129,9 @@
             {{-- cards content --}}
             {{-- ================================ --}}
             <div class="containe justify-content-between">
-                <div class="titlehoses"><h5 style="text-decoration: underline">Houses</h5></div>
+                @if(sizeOf($houses)>0)
+                    <div class="titlehoses"><h5 style="text-decoration: underline">Houses</h5></div>
+                @endif
                 <div class="row">
                     @foreach ($houses as $house)
                         <?php $cover = explode('|', $house->images, -1); ?>
@@ -140,7 +142,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{$house->name}}</h5>
                                     <div class="row">
-                                        <p class="card-text col text-start mb-0">{{$house->price}} mzn</p>
+                                        <p class="card-text col text-start mb-0">${{ number_format($house->price,2)}} mzn</p>
                                         <p class="card-type col text-end">Project</p>
                                     </div>
                                 </div>
@@ -148,21 +150,6 @@
                         </a>
                     </div>
                     @endforeach
-
-                    {{-- <div class="col-lg-3 col-sm-12 col-md-3 mb-4">
-                        <a href="{{ url('/house') }}">
-                        <div class="card">
-                            <img src="{{ asset('componets/images/navbar.jpg') }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Casa T3</h5>
-                                <div class="row">
-                                    <p class="card-text col text-start mb-0">50.000 mzn</p>
-                                    <p class="card-type col text-end">Rent</p>
-                                </div>
-                            </div>
-                        </div>
-                        </a>
-                    </div> --}}
                 </div>
             </div>
             {{-- ================================ --}}

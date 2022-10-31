@@ -44,7 +44,12 @@
                     <div class="house-price col-lg-7 col-md-12 col-sm-12">
                         <a class="house-price-link" href="" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">
                             <div class="house-price-0 row">
-                                <div class="house-price-1">{{$house[0]->price}} Mzn</div>
+                                <div class="house-price-1">
+                                    ${{
+                                        number_format($house[0]->price, 2);
+
+                                    }}
+                                </div>
                                 <div class="house-price-2">Visit</div>
                             </div>
                             <span style="padding-top: 9px; display:flex; font-size: 11px; justify-content: center">click here to request a visit</span>
@@ -184,8 +189,7 @@
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Visit Date:</label>
-            {{-- <input type="datetime-local" id="timesbtn" onclick="timesWWW('2022-10-10','2022-10-25','2022-10-29')" class="form-control" name="visitdate" id="visitdate" required placeholder="select date"> --}}
-            <input type="datetime-local" id="timesbtn" data-visits="{{$house[0]->visit_times}}" class="form-control" name="visitdate" id="visitdate" required placeholder="select date">
+            <input type="datetime-local" id="timesbtn" data-visits="{{$house[0]->visit_times}}" class="form-control" name="visitdate" required placeholder="select date">
           </div>
           <div class="mb-3">
             <label for="message-text" class="col-form-label">Message:</label>
@@ -248,44 +252,6 @@
     </div>
   </div>
 
-    </main>
-<script src="text/javascipt">
-    // function timesBtn() {
-    // time2 = "2022-07-18";
-    // time1 = "2022-09-14";
-    //     alert("jksdb")
-    // time3 = <?php echo (json_encode($house[0]->visit_times)); ?>;
-    // var time3 = JSON.parse("<?php echo json_encode($house[0]->visit_times); ?>");
-    //     alert(time3)
-    // config = {
-    //   enable: [time1, time2, time3,
-    //       new Date(time3.split("-",3)[0], time1.split("-",3)[1], time3.split("-",3)[2])
-    //   ],
-    //   enableTime: true,
-    //   minTime: "12:00",
-    //   maxTime: "20:30"
-    // };
-    // flatpickr("input[type=datetime-local]", config);
-//   }
-
-// function timesWWW(time1,time2,time3){
-//     // var time3 = JSON.parse("<?php echo json_encode($house[0]->visit_times); ?>");
-
-//     alert("jhbasjfhabj")
-//     // time1= "2022-07-15"
-//     // time2= "2022-07-18"
-//     // time3= "2022-07-10"
-
-//     // alert("jkasnd")
-//     config = {
-//         enable: [time1,time2, time3, new Date(2022, 8, 9) ],
-//         enableTime: true,
-//         minTime: "12:00",
-//         maxTime: "20:30",
-//     }
-
-//     flatpickr("input[type=datetime-local]", config);
-// }
-</script>
+</main>
 
 @endsection

@@ -60,7 +60,6 @@ $(document).ready(function() {
 $('#timesbtn').click(function times(){
 
     var times = $(this).attr('data-visits')
-    console.log(times.split('|'))
 
     let data = times.split('|')
 
@@ -68,9 +67,9 @@ $('#timesbtn').click(function times(){
 
     console.log(dates)
     config = {
-        enable: [dates],
+        enable: ["'"+dates+"'"],
         enableTime: true,
-        minTime: "12:00",
+        minTime: "10:00",
         maxTime: "16:30",
     }
 
