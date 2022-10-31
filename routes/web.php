@@ -46,3 +46,5 @@ Route::get('/dashboard/viewHouse/{id}', [HouseAdminController::class,'viewHouse'
 Route::get('/dashboard/cretehouse', [HouseAdminController::class,'createhouse'])->name('createhouse');
 
 Route::post('/dashboard/newhouse', [HouseAdminController::class,'newhouse'])->name('newhouse');
+
+Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
