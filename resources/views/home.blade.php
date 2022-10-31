@@ -63,14 +63,6 @@
         {{-- ================================ --}}
         <ul id="autoWidth" class="cs-hidden mt-5 ms-lg-2 ms-sm-2 me-sm-2">
             @foreach ($houses as $house)
-<<<<<<< Updated upstream
-                <?php $image = explode('|', $house->images) ?>
-            <li class="item-a" alt="1">
-                <a href="{{ url('/house',['id'=>$house->id]) }}">
-                    <div class="card card-slide">
-                        <img src="{{ asset('images/houses/'.$house->path .'/'.$image[0]) }}" class="card-img-top card-image">
-                        {{-- <div class="hover-btn"> --}}
-=======
                 <?php $image = explode('|', $house->images); ?>
                 <li class="item-a" alt="1">
                     <a href="{{ url('/house', ['id' => $house->id]) }}">
@@ -78,7 +70,6 @@
                             <img src="{{ asset('images/houses/' . $house->path . '/' . $image[0]) }}"
                                 class="card-img-top card-image">
                             {{-- <div class="hover-btn"> --}}
->>>>>>> Stashed changes
                             <div class="card-textt">
                                 {{ $house->name }} <br>
                                 Garagem: {{ $house->garage }} carros <br>
@@ -164,23 +155,6 @@
             {{-- cards content --}}
             {{-- ================================ --}}
             <div class="containe justify-content-between">
-<<<<<<< Updated upstream
-                @if(sizeOf($houses)>0)
-                    <div class="titlehoses"><h5 style="text-decoration: underline">Houses</h5></div>
-                @endif
-                <div class="row">
-                    @foreach ($houses as $house)
-                        <?php $cover = explode('|', $house->images, -1); ?>
-                    <div class="col-lg-3 col-sm-12 col-md-3 mb-4">
-                        <a href="{{ url('/house',['id'=>$house->id]) }}">
-                            <div class="card">
-                                <img src="{{ asset('images/houses/'.$house->path.'/'.$cover[0]) }}" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{$house->name}}</h5>
-                                    <div class="row">
-                                        <p class="card-text col text-start mb-0">${{ number_format($house->price,2)}} mzn</p>
-                                        <p class="card-type col text-end">Project</p>
-=======
                 <div class="titlehoses">
                     <h5 style="text-decoration: underline">{{__("message.houses")}}</h5>
                 </div>
@@ -198,7 +172,6 @@
                                             <p class="card-text col text-start mb-0">{{ $house->price }} mzn</p>
                                             <p class="card-type col text-end">Project</p>
                                         </div>
->>>>>>> Stashed changes
                                     </div>
                                 </div>
                             </a>
