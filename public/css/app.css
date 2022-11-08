@@ -383,3 +383,16 @@ padding-top: 50px;
 /*    END SLIDE TOP HOUSES    */
 /*======================================*/
 }
+
+
+/*===================Login starts ===================*/
+
+.login_section{
+    margin-top: 10rem;
+}
+
+/*====================Login ends==================*/
+.phone{
+    width: 25rem !important;
+    height:3.1rem ;
+}
