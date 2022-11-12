@@ -16,14 +16,22 @@
                         </button>
                         <!--Item List-->
                         <ul id="list">
-                            <li><a href="#">{{__("message.home")}}</a></li>
+
+                            {{-- <li><a href="#">{{__("message.home")}}</a></li> --}}
                             {{-- <li><a href="#">Services</a></li> --}}
                             <li><a href="#">{{__("message.contact")}}</a></li>
                             {{-- <li><a href="#">Info</a></li> --}}
-                            <li><a href="#">{{__("message.subscribe")}}</a></li>
+                            {{-- <li><a href="#">{{__("message.subscribe")}}</a></li> --}}
 
+                            @if (!Auth::check())
+                            {{-- Login and register starts --}}
+                            <li><a href="registration">Regist</a></li>
 
-                            {{-- language switcher --}}
+                            <li><a href="login">Login</a></li>
+                            @endif
+
+                            {{-- language switcher starts --}}
+
 
                             <li class="nav-item dropdown">
                                 <a class=" dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -43,6 +51,16 @@
                                     @endforeach
                                 </div>
                             </li>
+
+                             {{-- language switcher ends --}}
+
+                             @if (Auth::check())
+                            <li><a href="logout">LogOut</a></li>
+                             {{-- Login and register ends --}}
+                             @endif
+
+
+
                         </ul>
                     </div>
                 </nav>
@@ -82,8 +100,6 @@
                 </li>
             @endforeach
         </ul>
-
-
 
         <div class="container mt-5 conthome">
             <div class="row rowcontenthome">
@@ -188,16 +204,18 @@
                 <div class="row pt-5">
                     <div class="col">
                         <h3 class="text-light">{{__("message.subscribe")}}</h3>
+
+
                     </div>
                     <div class="col">
-                        <h3 class="text-light">HERE 2</h3>
+                        <h3 class="text-light">Contactos</h3>
                     </div>
                     <div class="col">
-                        <h3 class="text-light">HERE 3</h3>
+                        <h3 class="text-light">Localizacao</h3>
                     </div>
-                    <div class="col">
-                        <h3 class="text-light">HERE 4</h3>
-                    </div>
+                    {{-- <div class="col">
+                        <h3 class="text-light">hhhhhh</h3>
+                    </div> --}}
                 </div>
             </div>
         </div>

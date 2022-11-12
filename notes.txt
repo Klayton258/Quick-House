@@ -14,3 +14,14 @@ Primeiro  actualizar middleware==========>>>>>>>>>>>>>>>>>======
 colocar nas routas......
 
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
+
+
+name
+Username
+phone
+gender
+birthDate
+email
+password
+comfirmPassword
+
