@@ -1190,6 +1190,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/abf198e443e06696af3f356b44de67c0fa516107",
                 "reference": "abf198e443e06696af3f356b44de67c0fa516107",
+
                 "shasum": ""
             },
             "require": {
@@ -1363,6 +1364,7 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2022-11-01T14:05:55+00:00"
+
         },
         {
             "name": "laravel/sanctum",
@@ -2311,6 +2313,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/nunomaduro/termwind/zipball/9a8218511eb1a0965629ff820dda25985440aefc",
                 "reference": "9a8218511eb1a0965629ff820dda25985440aefc",
+
                 "shasum": ""
             },
             "require": {
@@ -2368,6 +2371,7 @@
             "support": {
                 "issues": "https://github.com/nunomaduro/termwind/issues",
                 "source": "https://github.com/nunomaduro/termwind/tree/v1.14.2"
+
             },
             "funding": [
                 {
@@ -2384,6 +2388,7 @@
                 }
             ],
             "time": "2022-10-28T22:51:32+00:00"
+
         },
         {
             "name": "phpoption/phpoption",
@@ -3196,6 +3201,7 @@
             ],
             "support": {
                 "source": "https://github.com/symfony/console/tree/v6.1.7"
+
             },
             "funding": [
                 {
@@ -3398,6 +3404,7 @@
             "description": "Provides tools to manage errors and ease debugging PHP code",
             "homepage": "https://symfony.com",
             "support": {
+
                 "source": "https://github.com/symfony/error-handler/tree/v6.1.7"
             },
             "funding": [
@@ -3699,7 +3706,7 @@
             "description": "Defines an object-oriented layer for the HTTP specification",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/http-foundation/tree/v6.1.7"
+                "source": "https://github.com/symfony/http-foundation/tree/v6.1.7"1
             },
             "funding": [
                 {
@@ -3884,6 +3891,7 @@
             "homepage": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/mailer/tree/v6.1.7"
+
             },
             "funding": [
                 {
@@ -3924,7 +3932,8 @@
                 "egulias/email-validator": "~3.0.0",
                 "phpdocumentor/reflection-docblock": "<3.2.2",
                 "phpdocumentor/type-resolver": "<1.4.0",
-                "symfony/mailer": "<5.4"
+                "symfony/mailer": "<5.4",
+                "symfony/serializer": "<5.4.14|>=6.0,<6.0.14|>=6.1,<6.1.6"
             },
             "require-dev": {
                 "egulias/email-validator": "^2.1.10|^3.1",
@@ -3965,6 +3974,7 @@
             ],
             "support": {
                 "source": "https://github.com/symfony/mime/tree/v6.1.7"
+
             },
             "funding": [
                 {
@@ -3981,6 +3991,7 @@
                 }
             ],
             "time": "2022-10-19T08:10:53+00:00"
+
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -4851,6 +4862,7 @@
             ],
             "support": {
                 "source": "https://github.com/symfony/routing/tree/v6.1.7"
+
             },
             "funding": [
                 {
@@ -4867,6 +4879,7 @@
                 }
             ],
             "time": "2022-10-18T13:12:43+00:00"
+
         },
         {
             "name": "symfony/service-contracts",
@@ -6700,6 +6713,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.26"
+
             },
             "funding": [
                 {

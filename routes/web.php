@@ -59,3 +59,4 @@ Route::post('/registration-user', [AuthController::class, 'registrationUser'])->
 Route::post('/login-user', [AuthController::class, 'loginUser'])->name('login.user');
 
 Route::get('/logout', [AuthController::class, 'logOut'])->name('logout.user');
+

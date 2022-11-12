@@ -16,6 +16,7 @@
                         </button>
                         <!--Item List-->
                         <ul id="list">
+
                             {{-- <li><a href="#">{{__("message.home")}}</a></li> --}}
                             {{-- <li><a href="#">Services</a></li> --}}
                             <li><a href="#">{{__("message.contact")}}</a></li>
@@ -30,6 +31,7 @@
                             @endif
 
                             {{-- language switcher starts --}}
+
 
                             <li class="nav-item dropdown">
                                 <a class=" dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -49,12 +51,14 @@
                                     @endforeach
                                 </div>
                             </li>
+
                              {{-- language switcher ends --}}
 
                              @if (Auth::check())
                             <li><a href="logout">LogOut</a></li>
                              {{-- Login and register ends --}}
                              @endif
+
 
 
                         </ul>
@@ -200,6 +204,8 @@
                 <div class="row pt-5">
                     <div class="col">
                         <h3 class="text-light">{{__("message.subscribe")}}</h3>
+
+
                     </div>
                     <div class="col">
                         <h3 class="text-light">Contactos</h3>
