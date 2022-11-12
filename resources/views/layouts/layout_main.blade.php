@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css"/>
     <link rel="stylesheet" href={{asset('css/app.css')}}>
+    <link rel="stylesheet" href={{asset('css/intlTelInput.css')}}>
+
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
@@ -26,5 +28,16 @@
 {{--    <script src={{asset('js/bootstrap.min.js')}}></script>--}}
     <script src={{asset('js/lightslider.js')}}></script>
     <script src={{asset('js/mainscript.js')}}></script>
+    <script src={{asset('js/intlTelInput.js')}}></script>
+    <script>
+         var input=document.getElementById('phone');
+        intlTelInput(input,{
+            utilsScript:"js/utils.js",
+            preferredCountries: ["mz","us" ],
+            autoPlaceholder:"polite",
+            nationalMode:false,
+
+        },);
+    </script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HouseAdminController;
 use App\Http\Controllers\UserAdminController;
 use Illuminate\Support\Facades\Route;
@@ -48,3 +49,14 @@ Route::get('/dashboard/cretehouse', [HouseAdminController::class,'createhouse'])
 Route::post('/dashboard/newhouse', [HouseAdminController::class,'newhouse'])->name('newhouse');
 
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
+
+Route::get('/login', [AuthController::class, 'login'])->name('Login');
+
+Route::get('/registration', [AuthController::class, 'registration'])->name('registration');
+
+Route::post('/registration-user', [AuthController::class, 'registrationUser'])->name('registration.user');
+
+Route::post('/login-user', [AuthController::class, 'loginUser'])->name('login.user');
+
+Route::get('/logout', [AuthController::class, 'logOut'])->name('logout.user');
+
