@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MobileApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +30,11 @@ Route::namespace('Api')->name('api.')->group(function () {
     });
 
 });
+
+Route::get('/houses', [MobileApiController::class, 'houses']);
+
+Route::get('/house/{id}', [MobileApiController::class, 'show']);
+
+Route::post('/create/user',[MobileApiController::class, 'createUser']);
+
+Route::post('/login/user',[MobileApiController::class, 'loginUser']);

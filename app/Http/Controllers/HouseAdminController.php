@@ -55,7 +55,8 @@ class HouseAdminController extends Controller
                 $image = $request->file('images')[$i];
                 $imageName = $i.'.'.$image->getClientOriginalExtension();
                 $img = Image::make($image);
-                ApiLogs::apiLog('info','New House Request:11 '.$img);
+                $img->resize(1200, 800);
+                // ApiLogs::apiLog('info','New House Request:11 '.$img);
                 $img->save(public_path('images/houses/'.$path.'/'.$imageName),$size);
 
 
@@ -75,7 +76,7 @@ class HouseAdminController extends Controller
                 'level_id'=> $request->level_id,
                 'outdoor_id'=> $request->outdoor_id,
                 'visit_times'=> $request->visit_times,
-                'promotion_price'=>  $request->promotion_price,
+                'promotion_price'=>  $request->promotion_price ==null ? 0 :$request->promotion_price ,
                 'images'=> $images,
                 'path'=>$path,
                 'name'=> $request->name,
@@ -92,11 +93,14 @@ class HouseAdminController extends Controller
                 'updated_at'=>NOW()
             ]);
 
-            ApiLogs::apiLog('info','New House Request: '.$house);
+            Toastr()->success("House saveded successfuly","House Saved" , ["positionClass" => "toast-top-right"]);
+
+            // ApiLogs::apiLog('info','New House Request: '.$house);
             return back();
 
         } catch (\Exception $e) {
             if (config('app.debug')) {
+                return $e->getMessage();
                 ApiLogs::apiLog('error','House Request: ',$e->getMessage());
             }
             ApiLogs::apiLog('error','House Request: ',$e->getMessage());
