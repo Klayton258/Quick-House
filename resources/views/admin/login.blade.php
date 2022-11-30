@@ -45,7 +45,7 @@ background: linear-gradient(to right, rgb(8, 58, 50), rgba(37, 117, 252, 1))
                     @csrf
                     <div class="form-outline form-white mb-4">
                         <label class="form-label float-start" for="typeEmailX">Email</label>
-                      <input type="email" name="username" class="form-control form-control-lg" required>
+                      <input type="text" name="username" class="form-control form-control-lg" required>
                     </div>
 
                     <div class="form-outline form-white mb-4">

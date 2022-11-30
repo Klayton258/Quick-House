@@ -73,9 +73,4 @@ $('#timesbtn').click(function times() {
 /******/ })()
 ;
 
-var input=document.getElementById('phone');
-intlTelInput(input,{
-    utilsScript:"js/utils.js",
-    preferredCountries: ["mz","us" ],
 
-},);

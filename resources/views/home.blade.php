@@ -19,15 +19,15 @@
 
                             {{-- <li><a href="#">{{__("message.home")}}</a></li> --}}
                             {{-- <li><a href="#">Services</a></li> --}}
-                            <li><a href="#">{{__("message.contact")}}</a></li>
+                            <li><a href="#">{{ __('message.contact') }}</a></li>
                             {{-- <li><a href="#">Info</a></li> --}}
                             {{-- <li><a href="#">{{__("message.subscribe")}}</a></li> --}}
 
                             @if (!Auth::check())
-                            {{-- Login and register starts --}}
-                            <li><a href="registration">Regist</a></li>
+                                {{-- Login and register starts --}}
+                                <li><a href="registration">Regist</a></li>
 
-                            <li><a href="login">Login</a></li>
+                                <li><a href="login">Login</a></li>
                             @endif
 
                             {{-- language switcher starts --}}
@@ -52,12 +52,12 @@
                                 </div>
                             </li>
 
-                             {{-- language switcher ends --}}
+                            {{-- language switcher ends --}}
 
-                             @if (Auth::check())
-                            <li><a href="logout">LogOut</a></li>
-                             {{-- Login and register ends --}}
-                             @endif
+                            @if (Auth::check())
+                                <li><a href="logout">LogOut</a></li>
+                                {{-- Login and register ends --}}
+                            @endif
 
 
 
@@ -66,11 +66,11 @@
                 </nav>
 
                 <div class="nav-title-begin">
-                    <h1 class="rellax" data-rellax-speed="5">{{__('message.welcome')}}</h1>
-                    <p class="rellax" data-rellax-speed="3">{{__('message.slogan')}}</p>
+                    <h1 class="rellax" data-rellax-speed="5">{{ __('message.welcome') }}</h1>
+                    <p class="rellax" data-rellax-speed="3">{{ __('message.slogan') }}</p>
                     <div>
-                        <button type="button" class="nav-button-begin rellax"
-                            data-rellax-speed="2"><span></span> {{__('message.contact')}}</button>
+                        <button type="button" class="nav-button-begin rellax" data-rellax-speed="2"><span></span>
+                            {{ __('message.contact') }}</button>
                     </div>
                 </div>
             </div>
@@ -79,27 +79,24 @@
         {{-- ================================ --}}
         {{-- cards slide Beggin --}}
         {{-- ================================ --}}
-        <ul id="autoWidth" class="cs-hidden mt-5 ms-lg-2 ms-sm-2 me-sm-2">
-            @foreach ($houses as $house)
-                <?php $image = explode('|', $house->images); ?>
-                <li class="item-a" alt="1">
-                    <a href="{{ url('/house', ['id' => $house->id]) }}">
-                        <div class="card card-slide">
-                            <img src="{{ asset('images/houses/' . $house->path . '/' . $image[0]) }}"
-                                class="card-img-top card-image">
-                            {{-- <div class="hover-btn"> --}}
-                            <div class="card-textt">
-                                {{ $house->name }} <br>
-                                Garagem: {{ $house->garage }} carros <br>
-                                Bairro: {{ $house->location }} <br>
-                                {{-- <div class="btn card-btn">view</div> --}}
-                                {{-- </div> --}}
-                            </div>
-                        </div>
-                    </a>
-                </li>
-            @endforeach
-        </ul>
+        <div class="slide_catg">
+
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">Slide 1</div>
+                    <div class="swiper-slide">Slide 2</div>
+                    <div class="swiper-slide">Slide 3</div>
+                    <div class="swiper-slide">Slide 4</div>
+                    <div class="swiper-slide">Slide 5</div>
+                    <div class="swiper-slide">Slide 6</div>
+                    <div class="swiper-slide">Slide 7</div>
+                    <div class="swiper-slide">Slide 8</div>
+                    <div class="swiper-slide">Slide 9</div>
+                </div>
+
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
 
         <div class="container mt-5 conthome">
             <div class="row rowcontenthome">
@@ -109,7 +106,7 @@
                 </div>
 
                 <div class="col descriphome">
-                    <h1 class="mt-5 mb-4">{{__("message.text_besthome")}}</h1>
+                    <h1 class="mt-5 mb-4">{{ __('message.text_besthome') }}</h1>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Est sed quis similique libero perferendis illum
                     expedita consequuntur veniam totam aliquam tempora optio ea veritatis aperiam accusantium, deserunt
                     tenetur mollitia praesentium?
@@ -166,13 +163,107 @@
                     </div>
                 </div>
             @endif
+            {{-- gallery --}}
+            <section class="gallery" id="gallery">
+
+                <div class="swiper gallery-slider">
+                    <div class="swiper-wrapper">
+                        <img src="" class="swiper-slide">
+                        <img src="images/gallery-img-2.webp" class="swiper-slide" alt="">
+                        <img src="images/gallery-img-3.webp" class="swiper-slide" alt="">
+                        <img src="images/gallery-img-4.webp" class="swiper-slide" alt="">
+                        <img src="images/gallery-img-5.webp" class="swiper-slide" alt="">
+                        <img src="images/gallery-img-6.webp" class="swiper-slide" alt="">
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+            </section>
+
+            {{-- search content starts --}}
+            <section class="box_container">
+                <aside class="search_box">
+                    <h2 class="title_form">Lorem </h2>
+                    <div class="form_search">
+
+                        <form action="">
+
+                            <div class="input-group rounded mb-3">
+                                <input type="search" class="form-control rounded" placeholder="Search"
+                                    aria-label="Search" aria-describedby="search-addon" />
+                                <span class="input-group-text border-0" id="search-addon">
+                                    <i class="bi bi-search"></i>
+                                </span>
+                            </div>
+
+                            <div class="mb-3">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Region</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                  </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </div>
+
+                              <div class="wrapper">
+                                <div class="title_form" >
+                                  <h2>Price Range</h2>
+                                  <p>Use slider or enter min and max price</p>
+                                </div>
+                                <div class="price-input">
+                                  <div class="field">
+                                    <span>Min</span>
+                                    <input type="number" class="input-min" value="2500">
+                                  </div>
+                                  <div class="separator">-</div>
+                                  <div class="field">
+                                    <span>Max</span>
+                                    <input type="number" class="input-max" value="7500">
+                                  </div>
+                                </div>
+                                <div class="slider">
+                                  <div class="progress"></div>
+                                </div>
+                                <div class="range-input">
+                                  <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">
+                                  <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
+                                </div>
+                              </div>
+
+
+                              <h2>Filter:</h2>
+                              <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                  <label class="form-check-label" for="flexRadioDefault1">
+                                    Default radio
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                  <label class="form-check-label" for="flexRadioDefault2">
+                                    Default checked radio
+                                  </label>
+                                </div>
+                        </form>
+                    </div>
+                </aside>
+
+                <div class="results_search">
+
+                </div>
+            </section>
+            {{-- search content ends --}}
 
             {{-- ================================ --}}
             {{-- cards content --}}
             {{-- ================================ --}}
             <div class="containe justify-content-between">
                 <div class="titlehoses">
-                    <h5 style="text-decoration: underline">{{__("message.houses")}}</h5>
+                    <h5 style="text-decoration: underline">{{ __('message.houses') }}</h5>
                 </div>
                 <div class="row">
                     @foreach ($houses as $house)
@@ -203,7 +294,7 @@
             <div class="container">
                 <div class="row pt-5">
                     <div class="col">
-                        <h3 class="text-light">{{__("message.subscribe")}}</h3>
+                        <h3 class="text-light">{{ __('message.subscribe') }}</h3>
 
 
                     </div>
