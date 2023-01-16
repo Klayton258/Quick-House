@@ -252,8 +252,41 @@
                     </div>
                 </aside>
 
-                <div class="results_search">
+                <div class="col-8 border border-danger ms-3">
+                    <div class="box-location">
+                        <div class="locationCity d-flex align-items-center">
+                            <h2> Maputo : <span class="totalLocation ">500 houses</span></h2>
+                            <div class="mapLocation">
+                                <a href="#">See in Map</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 border border-danger ms-3 mt-5">
+                        {{__('message.text_besthome')}}
+                    </div>
+                    <div class=" border border-primary mt-5 d-flex" style="height: 20rem">
 
+                        <img src="{{asset('componets/images/img-1.jpg')}}" alt="" class="res-img">
+                        <div class="content-box status col-4">
+                            <a href="#" class="aName">Five Stars Maputo Hotel
+                            </a>
+                            <span>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </span>
+                            <a href="#" class="map">Maputo see in Map</a>
+                            <div class="discription">
+                                <p>Lorem ipsum dolor sit amet.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                            </div>
+                        </div>
+                        <div class="status col-5">
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia sunt voluptas laboriosam? Minima libero obcaecati odio alias modi commodi architecto.</p>
+                        </div>
+                    </div>
                 </div>
             </section>
             {{-- search content ends --}}
