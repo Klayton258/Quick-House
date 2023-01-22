@@ -336,19 +336,76 @@
     margin-bottom: 5rem;
     margin-top: 15rem;
 }
-.content-box .discription
+.content-box .description
 {
     margin-top: .8rem;
     margin-left: 1.5rem;
 }
 .box-location .mapLocation
 {
-    background: url(../componets/images/Maps.png) no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: 5rem;
-    height: 5rem;
     margin-left: 20rem;
-   align-items: center;
-   justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+    justify-content: space-between;
+}
+.box-location .mapLocation .map_link{
+    justify-items: center;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: var(--main-color);
+    border-radius: 50%;
+}
+.box-location .mapLocation .map_link p:hover{
+    text-decoration: underline;
+    font-weight: 400;
+}
+.box-location .mapLocation .map_link p{
+    margin-right: 2.5rem;
+
+}
+.box-location .mapLocation .map_link img{
+    margin-left: 1rem;
+}
+.box-location .mapLocation img
+{
+    width: 3rem;
+}
+.status
+{
+    margin-left: -1.3rem;
+}
+.status .icon{
+    margin-left: 2rem !important;
+    margin-top: 2rem;
+}
+.price{
+   margin-top: 10rem;
+   margin-left: 3rem;
+   color: #333;
+   font-weight: 500;
+   display: inline-flex;
+}
+.price span{
+    color: var(--main-color);
+    font-size: 1.1rem;
+}
+.price p{
+    text-decoration: underline;
+}
+.sortBy select
+{
+    width: 10rem;
+    padding: .4rem !important;
+    margin-left: 1rem !important;
+    margin-top: 0;
+
+}
+.sort-result h2
+{
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 5px;
+    color: #465b52;
 }

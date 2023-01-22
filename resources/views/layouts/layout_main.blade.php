@@ -11,6 +11,7 @@
     <link rel="stylesheet" href={{ asset('css/app.css') }}>
     <link rel="stylesheet" href={{ asset('css/intlTelInput.css') }}>
     <link rel="stylesheet" href={{ asset('css/catg.css') }}>
+    <link rel="stylesheet" href={{ asset('css/mainStyle.css') }}>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
@@ -18,6 +19,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
     <title>Quick House</title>
+    @livewireStyles
 </head>
 <body>
     @yield('content')
@@ -38,7 +40,7 @@
     <script src={{ asset('js/lightslider.js') }}></script>
     <script src={{ asset('js/mainscript.js') }}></script>
     <script src={{ asset('js/intlTelInput.js') }}></script>
-
+    @livewireScripts
     <script>
         const rangeInput = document.querySelectorAll(".range-input input"),
 priceInput = document.querySelectorAll(".price-input input"),

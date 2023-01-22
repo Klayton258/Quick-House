@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HouseAdminController;
 use App\Http\Controllers\UserAdminController;
+use App\Http\Livewire\CategComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -70,3 +71,6 @@ Route::post('/login-user', [AuthController::class, 'loginUser'])->name('login.us
 
 Route::get('/logout', [AuthController::class, 'logOut'])->name('logout.user');
 
+Route::get('/house-category/{slug}',[CategComponent::class, 'render'])->name('house.category');
+
+// Route::get('/product-category',[\App\Http\Livewire\CategComponent::class])->name('product.category');

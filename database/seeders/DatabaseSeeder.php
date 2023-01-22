@@ -53,6 +53,10 @@ class DatabaseSeeder extends Seeder
             DB::table('levels')->insert($item);
         }
 
+        //Category And Products
+        \App\Models\Category::factory(6)->create();
+        \App\Models\House::factory(16)->create();
+        // \App\Models\Product::factory(16)->create();
         // $roles = [
         //     ['role_name' => 'CLIENT','created_at'=> now(), 'updated_at'=> now()],
         //     ['role_name' => 'CREATE_HOUSE','created_at'=> now(), 'updated_at'=> now()],
