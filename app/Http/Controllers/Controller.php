@@ -15,6 +15,7 @@ class Controller extends BaseController
     function index(){
         $houses = DB::table('houses')->paginate(8);
         $outdoor = DB::table('houses')->where(['outdoor_id'=> 1])->limit(4)->orderByDesc('id')->get();
+        // dd(sizeof($outdoor));
         return view('home', ['houses'=> $houses, 'outdoors'=>$outdoor]);
     }
 

@@ -3,13 +3,18 @@
 namespace App\Http\Livewire;
 
 use App\Models\House;
+use App\Models\Type;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\DB;
+
+use function PHPSTORM_META\type;
+
 class HouseComponent extends Component
 {
     use WithPagination;
 
-    public $pageSize= 3;
+    public $pageSize= 4;
     protected $paginationTheme ='bootstrap';
     public $orderBy= 'Default Sorting';
     public function changeOrderBy($orderBy)
@@ -21,7 +26,10 @@ class HouseComponent extends Component
       {
           $this->pageSize =$size;
       }
-
+    //   public function mount($id)
+    //   {
+    //     $this->id =$id;
+    //   }
     public function render()
     {
         // if($this->orderBy =='Price: Low to High')
@@ -42,6 +50,10 @@ class HouseComponent extends Component
         // {
         //     $houses = Product::paginate($this->pageSize);
         // }
+        // $type= Type::where(['id'=> $this->id])->first();
+
+        // $type_name=$type->type_name;
+        // dd($type->id);
         $houses = House::paginate($this->pageSize);
         return view('livewire.house-component', ['houses'=>$houses]);
     }

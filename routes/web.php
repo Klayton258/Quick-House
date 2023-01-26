@@ -73,4 +73,3 @@ Route::get('/logout', [AuthController::class, 'logOut'])->name('logout.user');
 
 Route::get('/house-category/{slug}',[CategComponent::class, 'render'])->name('house.category');
 
-// Route::get('/product-category',[\App\Http\Livewire\CategComponent::class])->name('product.category');

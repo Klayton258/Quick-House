@@ -373,15 +373,15 @@
 }
 .status
 {
-    margin-left: -1.3rem;
+    margin-left: 4rem;
 }
 .status .icon{
     margin-left: 2rem !important;
     margin-top: 2rem;
 }
 .price{
-   margin-top: 10rem;
-   margin-left: 3rem;
+   margin-top: 13.50rem;
+   margin-left: 8rem;
    color: #333;
    font-weight: 500;
    display: inline-flex;

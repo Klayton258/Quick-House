@@ -117,7 +117,7 @@
             </div>
 
 
-            @if (sizeOf($outdoors) > 0)
+            @if (0< sizeof($outdoors))
                 <div class="carrouselhome">
                     <div class="newhomestitle">
                         <h4>TOP NEW</h4>
