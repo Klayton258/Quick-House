@@ -40,6 +40,7 @@
     <script src={{ asset('js/lightslider.js') }}></script>
     <script src={{ asset('js/mainscript.js') }}></script>
     <script src={{ asset('js/intlTelInput.js') }}></script>
+    <script src={{ asset('js/scripts.js') }}></script>
     @livewireScripts
     <script>
         const rangeInput = document.querySelectorAll(".range-input input"),

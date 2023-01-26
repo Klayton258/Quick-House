@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 use App\Models\Category;
 use Livewire\Component;
-use App\Models\Product;
+use App\Models\house;
 
 class CategoryComponet extends Component
 {
@@ -27,8 +27,8 @@ class CategoryComponet extends Component
 
         $categories = Category::orderBy('name', 'ASC')->get();
 
-        $products = Product::paginate($this->pageSize);
+        $houses = House::paginate($this->pageSize);
 
-        return view('livewire.category-component',['products'=>$products, 'categories'=> $category, 'category_name'=> $category_name]);
+        return view('livewire.category-component',['houses'=>$houses, 'categories'=> $category, 'category_name'=> $category_name]);
     }
 }

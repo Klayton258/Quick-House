@@ -117,7 +117,7 @@
             </div>
 
 
-            @if (0< sizeof($outdoors))
+            @if (0 < sizeof($outdoors))
                 <div class="carrouselhome">
                     <div class="newhomestitle">
                         <h4>TOP NEW</h4>
@@ -202,52 +202,56 @@
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
-                                  </select>
+                                </select>
                             </div>
 
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-primary">Search</button>
                             </div>
 
-                              <div class="wrapper">
-                                <div class="title_form" >
-                                  <h2>Price Range</h2>
-                                  <p>Use slider or enter min and max price</p>
+                            <div class="wrapper">
+                                <div class="title_form">
+                                    <h2>Price Range</h2>
+                                    <p>Use slider or enter min and max price</p>
                                 </div>
                                 <div class="price-input">
-                                  <div class="field">
-                                    <span>Min</span>
-                                    <input type="number" class="input-min" value="2500">
-                                  </div>
-                                  <div class="separator">-</div>
-                                  <div class="field">
-                                    <span>Max</span>
-                                    <input type="number" class="input-max" value="7500">
-                                  </div>
+                                    <div class="field">
+                                        <span>Min</span>
+                                        <input type="number" class="input-min" value="2500">
+                                    </div>
+                                    <div class="separator">-</div>
+                                    <div class="field">
+                                        <span>Max</span>
+                                        <input type="number" class="input-max" value="7500">
+                                    </div>
                                 </div>
                                 <div class="slider">
-                                  <div class="progress"></div>
+                                    <div class="progress"></div>
                                 </div>
                                 <div class="range-input">
-                                  <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">
-                                  <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
+                                    <input type="range" class="range-min" min="0" max="10000"
+                                        value="2500" step="100">
+                                    <input type="range" class="range-max" min="0" max="10000"
+                                        value="7500" step="100">
                                 </div>
-                              </div>
+                            </div>
 
 
-                              <h2>Filter:</h2>
-                              <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                  <label class="form-check-label" for="flexRadioDefault1">
+                            <h2>Filter:</h2>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
                                     Default radio
-                                  </label>
-                                </div>
-                                <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                                  <label class="form-check-label" for="flexRadioDefault2">
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault2" checked>
+                                <label class="form-check-label" for="flexRadioDefault2">
                                     Default checked radio
-                                  </label>
-                                </div>
+                                </label>
+                            </div>
                         </form>
                     </div>
                 </aside>
@@ -255,19 +259,17 @@
                 <div class="col-8 ms-3">
                     <div class="box-location">
                         <div class="locationCity d-flex align-items-center">
-                            <h2> Maputo : <span class="totalLocation ">{{$houses->total()}} </span>Houses</h2>
+                            <h2> Maputo : <span class="totalLocation ">{{ $houses->total() }} </span>Houses</h2>
                             <div class="mapLocation">
                                 <a href="#" class="map_link">
-                                    <img src="{{asset('componets/images/Maps.png')}}">
+                                    <img src="{{ asset('componets/images/Maps.png') }}">
                                     <p>See in Map</p>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="ms-3 mt-5">
-                           @livewire('sort-by-component')
-                    </div>
-                    @livewire('house-component')
+            @livewire('house-component')
+
                 </div>
 
             </section>

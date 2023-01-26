@@ -14,7 +14,7 @@ class HouseComponent extends Component
 {
     use WithPagination;
 
-    public $pageSize= 4;
+    public $pageSize=2;
     protected $paginationTheme ='bootstrap';
     public $orderBy= 'Default Sorting';
     public function changeOrderBy($orderBy)
