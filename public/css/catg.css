@@ -314,9 +314,6 @@
     background-color: #666;
     color: white;
   }
-.active{
-
-}
 .content-box , .content-box span
 {
     display: block;
@@ -393,7 +390,7 @@
 }
 .price{
    margin-top: 13.50rem;
-   margin-left: 8rem;
+   margin-left: 2rem;
    color: #333;
    font-weight: 500;
    display: inline-flex;

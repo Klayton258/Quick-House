@@ -8,6 +8,7 @@ use App\Models\User;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class UserAdminController extends Controller
@@ -86,7 +87,6 @@ class UserAdminController extends Controller
 
         if(Auth::guard('admin')->check())
             return redirect(route('admin'));
-
         return view('admin.login');
     }
 

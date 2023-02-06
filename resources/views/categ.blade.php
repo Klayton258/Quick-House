@@ -1,3 +1,6 @@
+@extends('layouts.layout_main')
+@section('content')
+@include('layouts.main_layout')
 <div>
     <div class="ms-3 mt-5">
 
@@ -101,3 +104,4 @@
         {{ $houses->links() }}
     </div>
 </div>
+@endsection

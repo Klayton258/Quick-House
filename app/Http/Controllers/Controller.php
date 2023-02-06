@@ -11,17 +11,19 @@ use Illuminate\Support\Facades\DB;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
+    public $id;
     function index(){
         $houses = DB::table('houses')->paginate(8);
-        $outdoor = DB::table('houses')->where(['outdoor_id'=> 1])->limit(4)->orderByDesc('id')->get();
+        $outdoor = DB::table('houses')->where(['outdoor_id'=> 2])->limit(4)->orderByDesc('id')->get();
         // dd(sizeof($outdoor));
         return view('home', ['houses'=> $houses, 'outdoors'=>$outdoor]);
     }
 
     function house($id){
+        $house_id =$this->id = $id;
+        $house = DB::table('houses')->where(['id'=>$house_id])->get();
 
-        $house = DB::table('houses')->where(['id'=>$id])->get();
+        // dd($house->name);
         return view('house',['house'=>$house]);
     }
 
