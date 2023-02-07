@@ -1,16 +1,22 @@
-@extends('layout.main_layout')
+@extends('layouts.layout_main')
 @section('content')
 
 <style>
     .gradient-custom {
 /* fallback for old browsers */
-background: #6a11cb;
+background: #11cb62;
 
 /* Chrome 10-25, Safari 5.1-6 */
-background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+background: -webkit-linear-gradient(to right, rgb(8, 58, 50), rgba(37, 117, 252, 1));
 
 /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+background: linear-gradient(to right, rgb(8, 58, 50), rgba(37, 117, 252, 1))
+}
+
+#home-redirect a{
+    color: white !important;
+    font-size: 18px;
+    text-decoration-line: none;
 }
 </style>
 
@@ -35,11 +41,11 @@ background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 
                 <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                 <p class="text-white-50 mb-5">Please enter your login and password!</p>
 
-                <form action="{{ route('admin') }}" method="POST">
+                <form action="{{ route('admin.login.validate') }}" method="POST">
                     @csrf
                     <div class="form-outline form-white mb-4">
                         <label class="form-label float-start" for="typeEmailX">Email</label>
-                      <input type="email" name="email" class="form-control form-control-lg" required>
+                      <input type="text" name="username" class="form-control form-control-lg" required>
                     </div>
 
                     <div class="form-outline form-white mb-4">
@@ -52,17 +58,16 @@ background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 
                     <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
                 </form>
 
-                <div class="d-flex justify-content-center text-center mt-4 pt-1">
-                  <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
-                  <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-                  <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+                <div class="d-flex justify-content-center text-center mt-4 pt-1" id="home-redirect">
+                  <a href="{{ route('home') }}">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i> Go to home</a>
                 </div>
 
               </div>
 
               <div>
-                {{-- <p class="mb-0">Don't have an account? <a href="#!" class="text-white-50 fw-bold">Sign Up</a>
-                </p> --}}
+                <p class="mb-0">Don't have an account? <a href="mailto:support@house.quick.co.mz" target="_blank" class="text-white-50 fw-bold">Contact Support</a>
+                </p>
               </div>
 
             </div>

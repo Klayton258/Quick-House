@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HouseAdminController;
 use App\Http\Controllers\UserAdminController;
+use App\Http\Livewire\CategComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,23 +31,33 @@ Route::get('/contact', 'Controller@contact')->name('contact');
 
 
 // ================================== ADMIN ROUTES =========================
-Route::get('/dashboard/home', 'AdminController@index')->name('admin');
+Route::get('/dashboard/login', [UserAdminController::class,'loginView'])->name('admin.login');
 
-// MANAGE USERS
-Route::get('/dashboard/manageUsers', [UserAdminController::class,'manageUsers'])->name('manageUsers');
+Route::post('/dashboard/validate/login', [UserAdminController::class,'login'])->name('admin.login.validate');
 
-Route::get('/dashboard/newUser', [UserAdminController::class,'newUser'])->name('newUser');
+Route::group(['prefix'=>'dashboard', 'middleware'=> ['auth:admin']], function(){
 
-Route::post('/dashboard/createUser', [UserAdminController::class,'createUser'])->name('createUser');
+    Route::get('/home', 'AdminController@index')->name('admin');
 
+    Route::get('/logout', [UserAdminController::class, 'logout'])->name('admin.logout');
 
-Route::get('/dashboard/manageHouses', [HouseAdminController::class,'manageHouses'])->name('manageHouses');
+    // MANAGE USERS
+    Route::get('/manageUsers', [UserAdminController::class,'manageUsers'])->name('manageUsers');
 
-Route::get('/dashboard/viewHouse/{id}', [HouseAdminController::class,'viewHouse'])->name('viewHouse');
+    Route::get('/newUser', [UserAdminController::class,'newUser'])->name('newUser');
 
-Route::get('/dashboard/cretehouse', [HouseAdminController::class,'createhouse'])->name('createhouse');
+    Route::post('/createUser', [UserAdminController::class,'createUser'])->name('createUser');
 
-Route::post('/dashboard/newhouse', [HouseAdminController::class,'newhouse'])->name('newhouse');
+    // MANAGE HOUSES
+    Route::get('/manageHouses', [HouseAdminController::class,'manageHouses'])->name('manageHouses');
+
+    Route::get('/viewHouse/{id}', [HouseAdminController::class,'viewHouse'])->name('viewHouse');
+
+    Route::get('/cretehouse', [HouseAdminController::class,'createhouse'])->name('createhouse');
+
+    Route::post('/newhouse', [HouseAdminController::class,'newhouse'])->name('newhouse');
+
+});
 
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
 
@@ -59,4 +70,3 @@ Route::post('/registration-user', [AuthController::class, 'registrationUser'])->
 Route::post('/login-user', [AuthController::class, 'loginUser'])->name('login.user');
 
 Route::get('/logout', [AuthController::class, 'logOut'])->name('logout.user');
-
