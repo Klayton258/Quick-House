@@ -32,7 +32,7 @@
                     <ul id="imageGallery">
 
                         @foreach ( array_slice($images,0,count($images)-1 ) as $image)
-
+                        
                         <li data-thumb="{{asset('images/houses/'.$house[0]->path.'/'.$image)}}" data-src="{{asset('images/houses/'.$house[0]->path.'/'.$image)}}">
                             <img src="{{asset('images/houses/'.$house[0]->path.'/'.$image)}}"/>
                         </li>

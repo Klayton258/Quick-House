@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HouseAdminController;
 use App\Http\Controllers\UserAdminController;
 use App\Http\Livewire\CategComponent;
+use App\Http\Livewire\SearchComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -74,3 +75,4 @@ Route::get('/logout', [AuthController::class, 'logOut'])->name('logout.user');
 Route::get('/house-category/{slug}',[CategComponent::class, 'render'])->name('house.category');
 // Route::get('/house-category/{slug}',CategComponent::class)->name('house.category');
 
+Route::get('/search',[SearchComponent::class, 'render'])->name('house.search');

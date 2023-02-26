@@ -99,15 +99,9 @@
                     <h2 class="title_form">Lorem </h2>
                     <div class="form_search">
 
-                        <form action="">
+                        @livewire('header-search-component')
 
-                            <div class="input-group rounded mb-3">
-                                <input type="search" class="form-control rounded" placeholder="Search"
-                                    aria-label="Search" aria-describedby="search-addon" />
-                                <span class="input-group-text border-0" id="search-addon">
-                                    <i class="bi bi-search"></i>
-                                </span>
-                            </div>
+                        <form action="">
 
                             <div class="mb-3">
                                 <select class="form-select" aria-label="Default select example">
