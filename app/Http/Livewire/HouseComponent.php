@@ -18,6 +18,8 @@ class HouseComponent extends Component
     public $pageSize=2;
     protected $paginationTheme ='bootstrap';
     public $orderBy= 'Default Sorting';
+    // public $slug;
+
 
     public function changeOrderBy($orderBy)
       {
@@ -28,27 +30,43 @@ class HouseComponent extends Component
       {
           $this->pageSize =$size;
       }
+    //   public function mount($slug)
+    //   {
 
+    //       $this->slug = $slug;
+    //       // $this->slug = request()->slug;
+    //   }
+    // function __construct($slug)
+    // {
+    //     $this->slug = $slug;
+    // }
     public function render()
     {
-        if($this->orderBy =='Price: Low to High')
-        {
+        // $url='/house-category' . $this->slug;
+
+        // $categoryUrl = request($url);
+
+
+        // dd( $categoryUrl);
+
+
+        // $s= $this->slug = request()->slug;
+        // $category =Category::where('slug', $s)->first();
+
+        // $category_id = $category->id;
+        // $category_name = $category->name;
+
+
+        if ($this->orderBy ==='Price: Low to High') {
             $houses =House::orderBy('price', 'ASC')->paginate($this->pageSize);
-
-        }
-        else if($this->orderBy =='Price: High to Low')
-        {
+            // dd('=========>>>Eu sghj===>>>');
+        } elseif ($this->orderBy ==='Price: High to Low') {
             $houses =House::orderBy('price', 'DESC')->paginate($this->pageSize);
-
-        }
-        else if($this->orderBy =='Sort: by Newest')
-        {
+        } elseif ($this->orderBy ==='Sort: by Newest') {
             // $houses =house::latest('price')->paginate($this->pageSize);
             //which is the same with:
-             $houses =House::orderBy('price', 'DESC')->paginate($this->pageSize);
-        }
-        else
-        {
+            $houses =House::orderBy('price', 'DESC')->paginate($this->pageSize);
+        } else {
             $houses = House::paginate($this->pageSize);
         }
         // $type= Type::where(['id'=> $this->id])->first();

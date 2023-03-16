@@ -72,7 +72,7 @@ Route::post('/login-user', [AuthController::class, 'loginUser'])->name('login.us
 
 Route::get('/logout', [AuthController::class, 'logOut'])->name('logout.user');
 
+// Route::livewire('/house-category/{slug}',[CategComponent::class, 'render'])->name('house.category');
 Route::get('/house-category/{slug}',[CategComponent::class, 'render'])->name('house.category');
-// Route::get('/house-category/{slug}',CategComponent::class)->name('house.category');
 
 Route::get('/search',[SearchComponent::class, 'render'])->name('house.search');

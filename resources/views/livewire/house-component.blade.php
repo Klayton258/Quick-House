@@ -59,6 +59,7 @@
                         <ul class="dropdown-menu">
                             @foreach ($categories as $category)
                             <li><a href="{{route('house.category',['slug'=>$category->slug])}}" class="px-3 mx-2">{{$category->name}}</a> </li>
+
                             @endforeach
 
                         </ul>
@@ -99,5 +100,7 @@
     @endforeach
     <div>
         {{ $houses->links() }}
+
+         {{-- {{dd(livewireScripts)}} --}}
     </div>
 </div>

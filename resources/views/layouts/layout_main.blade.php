@@ -41,7 +41,12 @@
     <script src={{ asset('js/mainscript.js') }}></script>
     <script src={{ asset('js/intlTelInput.js') }}></script>
     <script src={{ asset('js/scripts.js') }}></script>
-    @livewireScripts
+    {{-- @livewireScripts --}}
+    {{-- <script src="{{ asset('vendor/livewire/livewire.js') }}"></script> --}}
+
+    <livewire:scripts />
+
+
     <script>
         const rangeInput = document.querySelectorAll(".range-input input"),
 priceInput = document.querySelectorAll(".price-input input"),
