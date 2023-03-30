@@ -315,25 +315,6 @@
             {{-- Cards content End --}}
             {{-- ================================ --}}
         </div>
-        <div class="banner mt-5">
-            <div class="container">
-                <div class="row pt-5">
-                    <div class="col">
-                        <h3 class="text-light">{{ __('message.subscribe') }}</h3>
-
-
-                    </div>
-                    <div class="col">
-                        <h3 class="text-light">Contactos</h3>
-                    </div>
-                    <div class="col">
-                        <h3 class="text-light">Localizacao</h3>
-                    </div>
-                    {{-- <div class="col">
-                        <h3 class="text-light">hhhhhh</h3>
-                    </div> --}}
-                </div>
-            </div>
-        </div>
+        @livewire('footer-component')
     </main>
 @endsection

@@ -11,12 +11,16 @@
     <link rel="stylesheet" href={{ asset('css/app.css') }}>
     <link rel="stylesheet" href={{ asset('css/intlTelInput.css') }}>
     <link rel="stylesheet" href={{ asset('css/catg.css') }}>
+    <link rel="stylesheet" href={{ asset('css/footer.css') }}>
     <link rel="stylesheet" href={{ asset('css/mainStyle.css') }}>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+         <!-- font-awesome link -->
+		<link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     <title>Quick House</title>
     @livewireStyles
