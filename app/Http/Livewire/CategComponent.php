@@ -13,7 +13,7 @@ class CategComponent extends Component
     use WithPagination;
 
     protected $paginationTheme ='bootstrap';
-    public $pageSize=25;
+    public $pageSize=100;
     public $orderBy= 'Default Sorting';
     public $slug;
     public $message = "Hello World!";

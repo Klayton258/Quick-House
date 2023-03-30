@@ -15,13 +15,13 @@ class SearchComponent extends Component
 {
     use WithPagination;
     protected $paginationTheme ='bootstrap';
-    public $pageSize=2;
+    public $pageSize=100;
     public $orderBy= 'Default Sorting';
 
     public $q;
     public $search_term;
 
-    public function mount()
+    public function __construct()
     {
         $this->fill(request()->only('q'));
         $this->search_term= '%'.$this->q .'%';
@@ -57,7 +57,12 @@ class SearchComponent extends Component
         }
         else
         {
-            $houses = House::where('name','like',$this->search_term)->paginate($this->pageSize);
+            // $houses = House::where('name','like',$this->search_term)->paginate($this->pageSize);
+
+            // dd( $houses);
+
+            $houses = House::where('name', 'like', $this->search_term)->paginate($this->pageSize, ['*'], 'page', $this->page);
+
         }
         // $type= Type::where(['id'=> $this->id])->first();
 
