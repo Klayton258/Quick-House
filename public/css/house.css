@@ -1,293 +1,320 @@
-.row-house{
-    margin: 10px;
+.row-house {
+  margin: 10px;
 }
-.house-images{
-    display: flex;
-    flex-direction: column;
+
+.house-box-container {
+  display: flex;
 }
-.house-description{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.house-box-container .house-images {
+  display: flex !important;
+  flex-direction: column;
 }
-ul li img{
-    width: 100%;
-    height: 50%;
+.house-box-container .house-images .box-house-image {
+  width: 45rem !important;
+  height: 30rem !important;
 }
+.house-box-container .house-images .box-house-image ul li {
+  width: 100%;
+  height: 100%;
+}
+.house-box-container .house-images .box-house-image ul li img {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+  -o-object-position: center center;
+     object-position: center center;
+}
+.house-box-container .house-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 9rem !important;
+}
+
 /*--------------------------------*/
 /*        House Type*/
 /*--------------------------------*/
-.house-type{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    width: 500px;
-    border: 3px solid #00c59d;
-    font-size: 20px;
-    font-weight: bold;
+.house-type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 500px;
+  border: 3px solid #00c59d;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.house-type-1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    width: 40%;
-    height: 100%;
-    background-color: #00c59d;
-}
-.house-type-2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    width: 60%;
+.house-type-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 40%;
+  height: 100%;
+  background-color: #00c59d;
 }
 
-.house-type-3{
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
+.house-type-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 60%;
 }
+
+.house-type-3 {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
 /*--------------------------------*/
 /*        House Type*/
 /*--------------------------------*/
-
 /*--------------------------------*/
 /*        House ROOMS*/
 /*--------------------------------*/
-.house-rooms{
-    margin-top: 20px;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    width: 200px;
-    border: 3px solid #00c59d;
-    font-size: 18px;
-    font-weight: bold;
+.house-rooms {
+  margin-top: 20px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 200px;
+  border: 3px solid #00c59d;
+  font-size: 18px;
+  font-weight: bold;
 }
-.rooms{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    width: 30%;
-    height: 100%;
-    background-color: #00c59d;
-    font-size: 15px;
+
+.rooms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 30%;
+  height: 100%;
+  background-color: #00c59d;
+  font-size: 15px;
 }
-.rooms-title{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    width: 70%;
-    font-size: 12px;
+
+.rooms-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 70%;
+  font-size: 12px;
 }
+
 /*--------------------------------*/
 /*        House ROOMS     */
 /*--------------------------------*/
-
 /*--------------------------------*/
 /*        House OTHERS    */
 /*--------------------------------*/
-.house-type-4{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 60px;
-    width: 90%;
-    margin-top: 20px;
-    border: 3px solid #00c59d;
-    font-size: 16px;
-    font-weight: bold;
+.house-type-4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 90%;
+  margin-top: 20px;
+  border: 3px solid #00c59d;
+  font-size: 16px;
+  font-weight: bold;
 }
 
-.house-type-5{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    width: 10%;
-    height: 100%;
-    background-color: #00c59d;
+.house-type-5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 10%;
+  height: 100%;
+  background-color: #00c59d;
 }
-.house-type-6{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    font-size: 12px;
+
+.house-type-6 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  font-size: 12px;
 }
-.house-textarea{
-    margin-top: 20px;
+
+.house-textarea {
+  margin-top: 20px;
 }
+
 /*--------------------------------*/
 /*        House PRICE N CONTACT */
 /*--------------------------------*/
-.house-price{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 40px;
-    margin-top: 30px;
-    align-self: center;
+.house-price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 40px;
+  margin-top: 6rem;
+  align-self: center;
 }
 
-.house-price-0{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    width: 500px;
-    border: 3px solid #00c59d;
-    font-size: 15px;
-    font-weight: bold;
+.house-price-0 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 500px;
+  border: 3px solid #00c59d;
+  font-size: 15px;
+  font-weight: bold;
 }
-.house-price-1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    width: 60%;
+
+.house-price-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 60%;
 }
-.house-price-2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    width: 40%;
-    height: 100%;
-    background-color: #00c59d;
-    color: white;
+
+.house-price-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 40%;
+  height: 100%;
+  background-color: #00c59d;
+  color: white;
 }
-.house-price-link{
-    text-decoration: none;
-    margin: 0;
-    padding: 0;
-    color: black;
+
+.house-price-link {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  color: black;
 }
-.house-price a:hover .house-price-0{
-    color: white;
-    background-color: #00c59d;
+
+.house-price a:hover .house-price-0 {
+  color: white;
+  background-color: #00c59d;
 }
-.house-price a:hover span{
-    color: black;
+
+.house-price a:hover span {
+  color: black;
 }
-.house-price a:hover .house-price-2{
-    background-color: white;
-    color: black;
+
+.house-price a:hover .house-price-2 {
+  background-color: white;
+  color: black;
 }
+
 /*--------------------------------*/
 /*        House PRICE N CONTACT */
 /*--------------------------------*/
-
-.sugetions-text{
-    font-size: 20px;
-    font-weight: bold;
-    padding-left: 20px;
-    padding-top: 20px;
-    color: #a0aec0;
+.sugetions-text {
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 20px;
+  padding-top: 20px;
+  color: #a0aec0;
 }
 
-.house-sugestions{
-    margin-top: 100px;
-    height: 400px;
-    width: 100%;
-    margin-bottom: 100px;
-    background-image: linear-gradient(rgba(100,100,100,0.99), rgba(100,100,100,0.65)), url("../componets/images/img-2.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
+.house-sugestions {
+  margin-top: 100px;
+  height: 400px;
+  width: 100%;
+  margin-bottom: 100px;
+  background-image: linear-gradient(rgba(100, 100, 100, 0.99), rgba(100, 100, 100, 0.65)), url("../componets/images/img-2.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-.house-sugestions{
-    display: inline-block;
 
+.house-sugestions {
+  display: inline-block;
 }
-.sugetions-row{
-    margin-right: 0px;
-    padding-left: 150px;
+
+.sugetions-row {
+  margin-right: 0px;
+  padding-left: 150px;
 }
 
 @media (min-width: 550px) and (max-width: 920px) {
-.row-house{
+  .row-house {
     margin: 0px;
-}
-.house-type-3{
+  }
+  .house-type-3 {
     width: 65%;
+  }
 }
-
-}
-
-@media (min-width: 1100px){
-    .row-house{
-        margin: 0px;
-    }
-    .house-type{
-        width: 400px;
-        }
-        .house-type-3{
-            width: 90%;
-        }
-        .house-rooms{
-            width: 160px;
-        }
-        .house-price-0{
-            width: 300px;
-        }
-        .sugetions-row{
-            margin-right: 0px;
-            padding-left: 20px;
-        }
-
-}
-
-@media (max-width: 540px) {
-.row-house{
+@media (min-width: 1100px) {
+  .row-house {
     margin: 0px;
-}
-.house-type{
+  }
+  .house-type {
+    width: 400px;
+  }
+  .house-type-3 {
+    width: 90%;
+  }
+  .house-rooms {
+    width: 160px;
+  }
+  .house-price-0 {
     width: 300px;
-    }
-    .house-type-3{
-        width: 100%;
-    }
-    .house-rooms{
-        width: 140px;
-    }
-    .house-price-0{
-        width: 300px;
-    }
-    .sugetions-row{
-        margin-right: 0px;
-        padding-left: 20px;
-    }
+  }
+  .sugetions-row {
+    margin-right: 0px;
+    padding-left: 20px;
+  }
+}
+@media (max-width: 540px) {
+  .row-house {
+    margin: 0px;
+  }
+  .house-type {
+    width: 300px;
+  }
+  .house-type-3 {
+    width: 100%;
+  }
+  .house-rooms {
+    width: 140px;
+  }
+  .house-price-0 {
+    width: 300px;
+  }
+  .sugetions-row {
+    margin-right: 0px;
+    padding-left: 20px;
+  }
 }
 @media (max-width: 380px) {
-    .house-type-3 {
-        width: 100%;
-    }
+  .house-type-3 {
+    width: 100%;
+  }
 }
 @media (min-width: 1360px) {
-    .row-house{
-        margin: 0px;
-    }
-    .house-type{
-        width: 600px;
-        }
-        .house-type-3{
-            width: 70%;
-        }
-        .house-rooms{
-            width: 190px;
-        }
-        .house-price-0{
-            width: 500px;
-        }
-        .sugetions-row{
-            margin-right: 0px;
-            padding-left: 20px;
-        }
-    }
+  .row-house {
+    margin: 0px;
+  }
+  .house-type {
+    width: 600px;
+  }
+  .house-type-3 {
+    width: 70%;
+  }
+  .house-rooms {
+    width: 190px;
+  }
+  .house-price-0 {
+    width: 500px;
+  }
+  .sugetions-row {
+    margin-right: 0px;
+    padding-left: 20px;
+  }
+}/*# sourceMappingURL=house.css.map */

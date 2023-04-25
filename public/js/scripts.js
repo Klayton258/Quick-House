@@ -28,3 +28,10 @@
             }
         })
     }
+
+    window.onload = function() {
+        var element = document.getElementById("res");
+        if (element) {
+            element.scrollIntoView();
+        }
+    }

@@ -96,7 +96,7 @@
             {{-- search content starts --}}
             <section class="box_container">
                 <aside class="search_box">
-                    <h2 class="title_form">Lorem </h2>
+                    <h2 class="title_form">Search </h2>
                     <div class="form_search">
 
                         @livewire('header-search-component')
@@ -104,7 +104,7 @@
                         <form action="">
 
                             <div class="mb-3">
-                                <select class="form-select" aria-label="Default select example">
+                                <select class="form-select form-select-lg" aria-label="Default select example">
                                     <option selected>Region</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
@@ -112,9 +112,9 @@
                                 </select>
                             </div>
 
-                            <div class="mb-3">
+                            {{-- <div class="mb-3">
                                 <button type="submit" class="btn btn-primary">Search</button>
-                            </div>
+                            </div> --}}
 
                             <div class="wrapper">
                                 <div class="title_form">
@@ -145,7 +145,7 @@
 
 
                             <h2>Filter:</h2>
-                            <div class="form-check">
+                            <div class="form-controll form-select-lg">
                                 <input class="form-check-input" type="radio" name="flexRadioDefault"
                                     id="flexRadioDefault1">
                                 <label class="form-check-label" for="flexRadioDefault1">
@@ -167,12 +167,12 @@
                     <div class="box-location">
                         <div class="locationCity d-flex align-items-center">
                             <h2> Maputo : <span class="totalLocation ">{{ $houses->total() }} </span>Houses</h2>
-                            <div class="mapLocation">
+                            {{-- <div class="mapLocation">
                                 <a href="#" class="map_link">
                                     <img src="{{ asset('componets/images/Maps.png') }}">
                                     <p>See in Map</p>
                                 </a>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
 

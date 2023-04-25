@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,12 +20,15 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-         <!-- font-awesome link -->
-		<link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <!-- font-awesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>Quick House</title>
     @livewireStyles
 </head>
+
 <body>
     @yield('content')
 
@@ -53,89 +57,89 @@
 
     <script>
         const rangeInput = document.querySelectorAll(".range-input input"),
-priceInput = document.querySelectorAll(".price-input input"),
-range = document.querySelector(".slider .progress");
-let priceGap = 1000;
+            priceInput = document.querySelectorAll(".price-input input"),
+            range = document.querySelector(".slider .progress");
+        let priceGap = 1000;
 
-priceInput.forEach(input =>{
-    input.addEventListener("input", e =>{
-        let minPrice = parseInt(priceInput[0].value),
-        maxPrice = parseInt(priceInput[1].value);
+        priceInput.forEach(input => {
+            input.addEventListener("input", e => {
+                let minPrice = parseInt(priceInput[0].value),
+                    maxPrice = parseInt(priceInput[1].value);
 
-        if((maxPrice - minPrice >= priceGap) && maxPrice <= rangeInput[1].max){
-            if(e.target.className === "input-min"){
-                rangeInput[0].value = minPrice;
-                range.style.left = ((minPrice / rangeInput[0].max) * 100) + "%";
-            }else{
-                rangeInput[1].value = maxPrice;
-                range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
-            }
-        }
-    });
-});
+                if ((maxPrice - minPrice >= priceGap) && maxPrice <= rangeInput[1].max) {
+                    if (e.target.className === "input-min") {
+                        rangeInput[0].value = minPrice;
+                        range.style.left = ((minPrice / rangeInput[0].max) * 100) + "%";
+                    } else {
+                        rangeInput[1].value = maxPrice;
+                        range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+                    }
+                }
+            });
+        });
 
-rangeInput.forEach(input =>{
-    input.addEventListener("input", e =>{
-        let minVal = parseInt(rangeInput[0].value),
-        maxVal = parseInt(rangeInput[1].value);
+        rangeInput.forEach(input => {
+            input.addEventListener("input", e => {
+                let minVal = parseInt(rangeInput[0].value),
+                    maxVal = parseInt(rangeInput[1].value);
 
-        if((maxVal - minVal) < priceGap){
-            if(e.target.className === "range-min"){
-                rangeInput[0].value = maxVal - priceGap
-            }else{
-                rangeInput[1].value = minVal + priceGap;
-            }
-        }else{
-            priceInput[0].value = minVal;
-            priceInput[1].value = maxVal;
-            range.style.left = ((minVal / rangeInput[0].max) * 100) + "%";
-            range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
-        }
-    });
-});
+                if ((maxVal - minVal) < priceGap) {
+                    if (e.target.className === "range-min") {
+                        rangeInput[0].value = maxVal - priceGap
+                    } else {
+                        rangeInput[1].value = minVal + priceGap;
+                    }
+                } else {
+                    priceInput[0].value = minVal;
+                    priceInput[1].value = maxVal;
+                    range.style.left = ((minVal / rangeInput[0].max) * 100) + "%";
+                    range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+                }
+            });
+        });
 
 
-          var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 3,
-        spaceBetween: 30,
-        freeMode: true,
-        centeredSlides: true,
-        clickable:true,
-        autoplay: {
-            delay: 2800,
-           disableOnInteraction: false,
-        },
-        loop:true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        type:false,
-      },
-    });
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            freeMode: true,
+            centeredSlides: true,
+            clickable: true,
+            autoplay: {
+                delay: 2800,
+                disableOnInteraction: false,
+            },
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                type: false,
+            },
+        });
 
-    var swiper = new Swiper(".gallery-slider", {
-      loop: true,
-      effect: "coverflow",
-      slidesPerView: "auto",
-      centeredSlides: true,
-    //   grabCursor: true,
-        clickable:true,
-      coverflowEffect: {
-        rotate: 0,
-        stretch: 0,
-        depth: 100,
-        modifier: 2,
-        slideShadows: true,
-      },
-      autoplay: {
-            delay: 2800,
-           disableOnInteraction: false,
-        },
-      pagination: {
-        el: ".swiper-pagination",
-        type:false,
-      },
-    });
+        var swiper = new Swiper(".gallery-slider", {
+            loop: true,
+            effect: "coverflow",
+            slidesPerView: "auto",
+            centeredSlides: true,
+            //   grabCursor: true,
+            clickable: true,
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 2,
+                slideShadows: true,
+            },
+            autoplay: {
+                delay: 2800,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                type: false,
+            },
+        });
 
         var input = document.getElementById('phone');
         intlTelInput(input, {
@@ -145,8 +149,7 @@ rangeInput.forEach(input =>{
             nationalMode: false,
 
         }, );
-
-
     </script>
 </body>
+
 </html>

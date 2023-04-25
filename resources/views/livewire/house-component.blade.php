@@ -1,10 +1,16 @@
+<?php
+    //  dd($houses[0]->images);
+ $images = explode('|', $houses[0]->images);
+
+
+?>
 <div>
     <div class="ms-3 mt-5">
 
         <div class="sort d-flex">
-            <div class="sort-result">
+            {{-- <div class="sort-result">
                 <h2>We found <span>{{ $houses->total()}}</span> items for you!</h2>
-            </div>
+            </div> --}}
             <div class="sortBy ms-5 d-flex">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
@@ -52,16 +58,15 @@
 
                 <div class="category">
                     <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle ms-5" type="button" data-bs-toggle="dropdown"
+                        <button class="btn btn-secondary dropdown-toggle ms-3" type="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                            Sorty Category
                         </button>
                         <ul class="dropdown-menu">
                             @foreach ($categories as $category)
-                            <li><a href="{{route('house.category',['slug'=>$category->slug])}}" class="px-3 mx-2">{{$category->name}}</a> </li>
+                            <li><a href="{{route('house.category',['slug'=>$category->slug])}}" class="p-2">{{$category->name}}</a> </li>
 
                             @endforeach
-
                         </ul>
                     </div>
                 </div>
@@ -69,10 +74,19 @@
         </div>
     </div>
     @foreach ($houses as $house)
-        <div class=" border border-primary mt-5 d-flex" style="height: 20rem">
-            <img src="{{ asset('componets/images/img-1.jpg') }}" alt="" class="res-img">
+        <div class=" border border-primary mt-5 d-flex">
+            {{-- <img src="{{ asset('componets/images/img-1.jpg') }}" alt="" class="res-img"> --}}
+
+            {{-- @foreach ( array_slice($images,0,count($images)-1 ) as $image)
+
+            <img style="width: 15rem" src="{{asset('images/houses/'.$houses[0]->path.'/'.$image)}}"/>
+
+            @endforeach --}}
+
+            <img style="width: 20rem" src="{{asset('images/houses/'.$houses[0]->path.'/'.$images[0])}}"/>
             <div class="content-box  col-4">
-                <a href="#" class="aName">{{ $house->name }}</a>
+
+                <a href="{{url('/house', ['id' => $house->id])}}" class="aName">{{ $house->name }}</a>
                 <span>
                     <i class="bi bi-star-fill"></i>
                     <i class="bi bi-star-fill"></i>
@@ -88,7 +102,7 @@
                     <p>AVALIABLE</p>
                 </div>
             </div>
-            <div class="status col-3">
+            <div class="status ">
                 <div>
                     <p>For Rent</p>
                 </div>

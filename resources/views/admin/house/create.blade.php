@@ -26,6 +26,17 @@
                             </div>
                         </div>
                         <div class="row mb-3">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">House Category</label>
+                            <div class="col-10">
+                                <select class="form-select col-sm-10 mb-3" aria-label="Default select example" name="category_id">
+                                    <option selected>Select the house type</option>
+                                        @foreach ($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Images</label>
                             <div class="col-sm-10">
                                 <input type="file" class="form-control" name="images[]" accept="image/png, image/jpg, image/jpeg" multiple>

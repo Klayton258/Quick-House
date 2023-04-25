@@ -5,7 +5,7 @@
 @extends('layouts/layout_main')
 @section('content')
     <main>
-        <nav class="nav" style="background-color: var(--teal); padding-bottom: 0px; padding-top: 0px ">
+        <nav class="nav mb-5" style="background-color: var(--teal); padding-bottom: 0px; padding-top: 0px ">
             <!--Brand-->
             <div class="logo">
                 <a href="{{url('/')}}">Quick House</a>
@@ -23,39 +23,43 @@
             </div>
         </nav>
 
+        {{-- <section id='banner' class="mb-5">
+            <div id="bg_house_banner">
+                <img src="{{asset('images/houses/'.$house[0]->path.'/'.$images[0])}}"/>
+            </div>
+        </section> --}}
+
         <section>
-            <div class="row justify-content-between row-house">
+            <div class="row justify-content-between row-house mt-5">
 {{--                -----------------------------------------------------}}
 {{--                            HOUSE IMAGES--}}
 {{--                -----------------------------------------------------}}
-                <div class="house-images col-lg-7 col-md-12 col-sm-12">
-                    <ul id="imageGallery">
-
-                        @foreach ( array_slice($images,0,count($images)-1 ) as $image)
-                        
-                        <li data-thumb="{{asset('images/houses/'.$house[0]->path.'/'.$image)}}" data-src="{{asset('images/houses/'.$house[0]->path.'/'.$image)}}">
-                            <img src="{{asset('images/houses/'.$house[0]->path.'/'.$image)}}"/>
-                        </li>
-
-                        @endforeach
-
-                    </ul>
-
-                    <div class="house-price col-lg-7 col-md-12 col-sm-12">
-                        <a class="house-price-link" href="" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">
-                            <div class="house-price-0 row">
-                                <div class="house-price-1">
-                                    ${{
-                                        number_format($house[0]->price, 2);
-
-                                    }}
-                                </div>
-                                <div class="house-price-2">Visit</div>
-                            </div>
-                            <span style="padding-top: 9px; display:flex; font-size: 11px; justify-content: center">click here to request a visit</span>
+                <div class="house-box-container">
+                    <div class="house-images">
+                        <div class="box-house-image">
+                            <ul id="imageGallery">
+                                @foreach ( array_slice($images,0,count($images)-1 ) as $image)
+                                <li data-thumb="{{asset('images/houses/'.$house[0]->path.'/'.$image)}}" data-src="{{asset('images/houses/'.$house[0]->path.'/'.$image)}}">
+                                    <img src="{{asset('images/houses/'.$house[0]->path.'/'.$image)}}"/>
+                                </li>
+                                @endforeach
+                            </ul>
                         </div>
-                    </a>
-                </div>
+                        <div class="house-price col-lg-5 col-md-8 ">
+                            <a class="house-price-link" href="" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">
+                                <div class="house-price-0 row">
+                                    <div class="house-price-1">
+                                        ${{
+                                            number_format($house[0]->price, 2);
+                                        }}
+                                    </div>
+                                    <div class="house-price-2">Visit</div>
+                                </div>
+                                <span style="padding-top: 9px; display:flex; font-size: 12px; justify-content: center; font-weight: 500">click here to request a visit</span>
+                            </div>
+                        </a>
+                    </div>
+
                 {{--                -----------------------------------------------------}}
                 {{--                            HOUSE IMAGES--}}
                 {{--                -----------------------------------------------------}}
@@ -63,50 +67,50 @@
                 {{--                -----------------------------------------------------}}
                 {{--                            HOUSE DESCRIPTION--}}
                 {{--                -----------------------------------------------------}}
-                <div class="house-description col-lg-5 col-md-12 col-sm-12 p-5">
-                    <div class="house-type row">
-                        <div class="house-type-1">Rent {{$house[0]->type_id}}</div>
-                        <div class="house-type-2">{{$house[0]->name}}</div>
-                    </div>
 
-                    <div class="house-type-3 row justify-content-between">
-                        <div class="house-rooms">
-                            <div class="rooms">{{$house[0]->rooms}}</div>
-                            <div class="rooms-title">Rooms</div>
+                    <div class="house-description col-lg-3">
+                        <div class="house-type row">
+                            <div class="house-type-1">Rent {{$house[0]->type_id}}</div>
+                            <div class="house-type-2">{{$house[0]->name}}</div>
                         </div>
-                        <div class="house-rooms">
-                            <div class="rooms">{{$house[0]->suit}}</div>
-                            <div class="rooms-title">Suit</div>
+                        <div class="house-type-3 row justify-content-between">
+                            <div class="house-rooms">
+                                <div class="rooms">{{$house[0]->rooms}}</div>
+                                <div class="rooms-title">Rooms</div>
+                            </div>
+                            <div class="house-rooms">
+                                <div class="rooms">{{$house[0]->suit}}</div>
+                                <div class="rooms-title">Suit</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="house-type-3 row justify-content-between">
-                        <div class="house-rooms">
-                            <div class="rooms">{{$house[0]->kitchen}}</div>
-                            <div class="rooms-title">Kitchen</div>
+                        <div class="house-type-3 row justify-content-between">
+                            <div class="house-rooms">
+                                <div class="rooms">{{$house[0]->kitchen}}</div>
+                                <div class="rooms-title">Kitchen</div>
+                            </div>
+                            <div class="house-rooms">
+                                <div class="rooms">{{$house[0]->wc}}</div>
+                                <div class="rooms-title">WC</div>
+                            </div>
                         </div>
-                        <div class="house-rooms">
-                            <div class="rooms">{{$house[0]->wc}}</div>
-                            <div class="rooms-title">WC</div>
+                        <div class="house-type-3 row justify-content-between">
+                            <div class="house-rooms">
+                                <div class="rooms">{{$house[0]->living_room}}</div>
+                                <div class="rooms-title">Living room</div>
+                            </div>
+                            <div class="house-rooms">
+                                <div class="rooms">{{$house[0]->garage}}</div>
+                                <div class="rooms-title">Garage</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="house-type-3 row justify-content-between">
-                        <div class="house-rooms">
-                            <div class="rooms">{{$house[0]->living_room}}</div>
-                            <div class="rooms-title">Living room</div>
+                        <div class="house-type-4 row">
+                            <div class="house-type-5">Loc</div>
+                            <div class="house-type-6"> {{$house[0]->location}}</div>
                         </div>
-                        <div class="house-rooms">
-                            <div class="rooms">{{$house[0]->garage}}</div>
-                            <div class="rooms-title">Garage</div>
+                        <div class="house-textarea">
+                            <p class="house-text-description">Description</p>
+                            <textarea class="form-control" rows="9" cols="50" disabled>{{$house[0]->description}}</textarea>
                         </div>
-                    </div>
-                    <div class="house-type-4 row">
-                        <div class="house-type-5">Loc</div>
-                        <div class="house-type-6"> {{$house[0]->location}}</div>
-                    </div>
-
-                    <div class="house-textarea">
-                        <p class="house-text-description">Description</p>
-                        <textarea class="form-control" rows="9" cols="50" disabled>{{$house[0]->description}}</textarea>
                     </div>
                 </div>
                 {{--                -----------------------------------------------------}}

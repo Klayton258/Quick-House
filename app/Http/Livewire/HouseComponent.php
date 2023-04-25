@@ -18,6 +18,7 @@ class HouseComponent extends Component
     public $pageSize=2;
     protected $paginationTheme ='bootstrap';
     public $orderBy= 'Default Sorting';
+    public $house_id;
     // public $slug;
 
 
@@ -42,6 +43,20 @@ class HouseComponent extends Component
     // }
     public function render()
     {
+
+        $House = DB::table('houses')->get();
+
+
+
+        // foreach($House as $house){
+        //      $house_id =$house->id;
+
+
+
+        //     $house = DB::table('houses')->where(['id'=>$house_id])->get();
+        //         dd($house);
+
+        // }
         // $url='/house-category' . $this->slug;
 
         // $categoryUrl = request($url);
@@ -67,7 +82,8 @@ class HouseComponent extends Component
             //which is the same with:
             $houses =House::orderBy('price', 'DESC')->paginate($this->pageSize);
         } else {
-            $houses = House::paginate($this->pageSize);
+            // $houses = House::paginate($this->pageSize);
+            $houses = House::where('name', 'like')->paginate($this->pageSize, ['*'], 'page', $this->page);
         }
         // $type= Type::where(['id'=> $this->id])->first();
 
@@ -75,6 +91,13 @@ class HouseComponent extends Component
         // dd($type->id);
         $categories = Category::orderBy('name', 'ASC')->get();
         $houses = House::paginate($this->pageSize);
-        return view('livewire.house-component', ['houses'=>$houses, 'categories'=>$categories]);
+        return view('livewire.house-component',
+        [
+        'House' => $House,
+        'houses'=>$houses,
+        'categories'=>$categories,
+
+
+        ]);
     }
 }

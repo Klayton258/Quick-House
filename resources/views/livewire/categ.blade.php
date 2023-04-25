@@ -160,7 +160,7 @@
                     </div>
                 </aside>
 
-                <div class="col-8 ms-3">
+                <div class="col-8 ms-3" id='res'>
                     <div class="box-location">
                         <div class="locationCity d-flex align-items-center">
                             <h2> Maputo : <span class="totalLocation ">{{ $houses->total() }} </span>Houses</h2>

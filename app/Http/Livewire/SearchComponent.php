@@ -39,6 +39,9 @@ class SearchComponent extends Component
 
     public function render()
     {
+
+        $House = DB::table('houses')->get();
+
         if($this->orderBy =='Price: Low to High')
         {
             $houses =House::where('name','like',$this->search_term)->orderBy('price', 'ASC')->paginate($this->pageSize);
@@ -64,6 +67,8 @@ class SearchComponent extends Component
             $houses = House::where('name', 'like', $this->search_term)->paginate($this->pageSize, ['*'], 'page', $this->page);
 
         }
+
+
         // $type= Type::where(['id'=> $this->id])->first();
 
         // $type_name=$type->type_name;

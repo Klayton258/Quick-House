@@ -1,3 +1,7 @@
+<?php
+ $images = explode('|', $houses[0]->images, -1);
+
+?>
 @extends('layouts.layout_main')
 @section('content')
     <main>
@@ -96,7 +100,7 @@
             {{-- search content starts --}}
             <section class="box_container">
                 <aside class="search_box">
-                    <h2 class="title_form">Lorem </h2>
+                    <h2 class="title_form">Search </h2>
                     <div class="form_search">
 
                         @livewire('header-search-component')
@@ -112,9 +116,9 @@
                                 </select>
                             </div>
 
-                            <div class="mb-3">
+                            {{-- <div class="mb-3">
                                 <button type="submit" class="btn btn-primary">Search</button>
-                            </div>
+                            </div> --}}
 
                             <div class="wrapper">
                                 <div class="title_form">
@@ -163,16 +167,16 @@
                     </div>
                 </aside>
 
-                <div class="col-8 ms-3">
+                <div class="col-8 ms-3" id="res">
                     <div class="box-location">
                         <div class="locationCity d-flex align-items-center">
                             <h2> Maputo : <span class="totalLocation ">{{ $houses->total() }} </span>Houses</h2>
-                            <div class="mapLocation">
+                            {{-- <div class="mapLocation">
                                 <a href="#" class="map_link">
                                     <img src="{{ asset('componets/images/Maps.png') }}">
                                     <p>See in Map</p>
                                 </a>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
 
@@ -181,9 +185,9 @@
                         <div class="ms-3 mt-5">
 
                             <div class="sort d-flex">
-                                <div class="sort-result">
+                                {{-- <div class="sort-result">
                                     <h2>We found <span>{{ $houses->total()}}</span> items for you!</h2>
-                                </div>
+                                </div> --}}
                                 <div class="sortBy ms-5 d-flex">
                                     <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
@@ -249,9 +253,21 @@
                         </div>
                         @foreach ($houses as $house)
                             <div class=" border border-primary mt-5 d-flex" style="height: 20rem">
-                                <img src="{{ asset('componets/images/img-1.jpg') }}" alt="" class="res-img">
+                                {{-- <img src="{{ asset('componets/images/img-1.jpg') }}" alt="" class="res-img"> --}}
+                                {{-- {{dd($house->path)}} --}}
+
+                                @foreach ( array_slice($images,0,count($images)-1 ) as $image)
+                                {{-- {{dd($image)}} --}}
+                                {{-- <img style="width: 20rem" src="{{asset('images/houses/'.$houses[0]->path.'/'.$image)}}"/> --}}
+                                <img style="width: 20rem"  src="{{ asset('images/houses/' . $house->path . '/' . $images[0]) }}" />
+
+                                {{-- {{dd($image)}} --}}
+                                @endforeach
+
+                                {{-- <img src="{{asset('images/houses/'.$houses[0]->path.'/'.$images[0])}}"/> --}}
+
                                 <div class="content-box  col-4">
-                                    <a href="#" class="aName">{{ $house->name }}</a>
+                                    <a href="{{url('/house', ['id' => $house->id])}}" class="aName">{{ $house->name }}</a>
                                     <span>
                                         <i class="bi bi-star-fill"></i>
                                         <i class="bi bi-star-fill"></i>

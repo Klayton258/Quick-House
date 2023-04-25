@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\API\ApiLogs;
 use App\Enum\RoleType;
+use App\Models\Category;
 use App\Models\House;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 use Ramsey\Uuid\Uuid;
@@ -23,13 +25,21 @@ class HouseAdminController extends Controller
 
     function createhouse()
     {
+        $roles =[];
         $user=[
-            'name'=> "Klayton Massamgo",
+            'name'=> Auth::guard('admin')->user()->name,
+            'roleType'=> Auth::guard('admin')->user()->role,
+            'roles'=> $roles
         ];
-
+        for($i=0; $i < sizeof(RoleType::cases()); $i++){
+            if(RoleType::cases()[$i]->name == Auth::guard('admin')->user()->role){
+                $roles = RoleType::cases()[$i]->roles();
+            }
+        }
         $types = Type::all();
+        $categories = Category::all();
 
-        return view('admin.house.create',['types'=>$types,'user'=>$user]);
+        return view('admin.house.create',compact('types', 'user' , 'categories', 'roles'));
     }
 
     function manageHouses(){
@@ -75,6 +85,7 @@ class HouseAdminController extends Controller
                 'type_id'=> $request->type_id,
                 'level_id'=> $request->level_id,
                 'outdoor_id'=> $request->outdoor_id,
+                'category_id'=> $request->category_id,
                 'visit_times'=> $request->visit_times,
                 'promotion_price'=>  $request->promotion_price ==null ? 0 :$request->promotion_price ,
                 'images'=> $images,

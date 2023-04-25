@@ -46,7 +46,8 @@
                         <div class="form-floating mb-4">
                             <select class="form-select col-sm-10 mb-3" aria-label="Default select example" name="role">
                                     @for ($i=0; $i < sizeOf($roles); $i++)
-                                    <option value="{{$roles[$i]->name}}">{{$roles[$i]->value}}</option>
+                                    {{-- {{dd($roles)}} --}}
+                                    <option value="{{$roles[$i]}}">{{$roles[$i]}}</option>
                                     @endfor
                             </select>
                             <label for="floatingPassword">Role</label>
