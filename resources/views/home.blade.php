@@ -166,7 +166,13 @@
                     </div>
                 </div>
             @endif
+                {{-- List houses  --}}
+                <div>
+                    @livewire('search-component')
+                </div>
 
+                @livewire('list-houses-component')
+                {{-- end List houses  --}}
             {{-- ================================ --}}
             {{-- cards content --}}
             {{-- ================================ --}}
@@ -185,7 +191,13 @@
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $house->name }}</h5>
                                         <div class="row">
-                                            <p class="card-text col text-start mb-0">{{ $house->price }} mzn</p>
+                                            <p class="card-text col text-start mb-0">
+                                                {{-- {{ $house->price }} mzn --}}
+
+                                                <script>
+                                                    document.write(currencyFormat({{ $house->price }}));
+                                                </script>
+                                            </p>
                                             <p class="card-type col text-end">Project</p>
                                         </div>
                                     </div>

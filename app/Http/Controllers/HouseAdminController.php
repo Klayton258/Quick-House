@@ -7,6 +7,7 @@ use App\Enum\RoleType;
 use App\Models\House;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 use Ramsey\Uuid\Uuid;
@@ -23,13 +24,28 @@ class HouseAdminController extends Controller
 
     function createhouse()
     {
+        // $user=[
+        //     'name'=> "Klayton Massamgo",
+        // ];
+
+        $roles =[];
+
         $user=[
-            'name'=> "Klayton Massamgo",
+            'name'=> Auth::guard('admin')->user()->name,
+            'roleType'=> Auth::guard('admin')->user()->role,
+            'roles'=> $roles
         ];
+
+        for($i=0; $i < sizeof(RoleType::cases()); $i++){
+            if(RoleType::cases()[$i]->name == Auth::guard('admin')->user()->role){
+                $roles = RoleType::cases()[$i]->roles();
+            }
+        }
 
         $types = Type::all();
 
-        return view('admin.house.create',['types'=>$types,'user'=>$user]);
+        // return view('admin.house.create',['types'=>$types,'user'=>$user]);
+        return view('admin.house.create', compact('types', 'user', 'roles'));
     }
 
     function manageHouses(){

@@ -25,12 +25,25 @@ class UserAdminController extends Controller
 
     function manageUsers()
     {
-        $user = [
-            'name'=> Auth::guard('admin')->user()->name
+        // $user = [
+        //     'name'=> Auth::guard('admin')->user()->name
+        // ];
+
+        $roles =[];
+
+        $user=[
+            'name'=> Auth::guard('admin')->user()->name,
+            'roleType'=> Auth::guard('admin')->user()->role,
+            'roles'=> $roles
         ];
 
         $users =$this->users::all();
-        $roles = RoleType::cases();
+
+        for($i=0; $i < sizeof(RoleType::cases()); $i++){
+            if(RoleType::cases()[$i]->name == Auth::guard('admin')->user()->role){
+                $roles = RoleType::cases()[$i]->roles();
+            }
+        }
 
 
         return view('admin.user.create',['users'=>$users, 'roles'=>$roles,'user'=>$user]);

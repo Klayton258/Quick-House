@@ -45,10 +45,13 @@
                         <a class="house-price-link" href="" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">
                             <div class="house-price-0 row">
                                 <div class="house-price-1">
-                                    ${{
+                                    {{-- ${{
                                         number_format($house[0]->price, 2);
 
-                                    }}
+                                    }} --}}
+                                    <script>
+                                        document.write(currencyFormat({{ $house[0]->price }}));
+                                    </script>
                                 </div>
                                 <div class="house-price-2">Visit</div>
                             </div>

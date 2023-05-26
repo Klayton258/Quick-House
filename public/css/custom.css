@@ -1,0 +1,21 @@
+
+.searchContent{
+    background: #009573;
+    padding: 50px;
+    box-shadow: 1px 2px 5px 2px #33333344;
+    border-radius: .5rem;
+}
+.searchContent div label
+{
+    font-size: 1rem;
+    color: #fefefe;
+    font-weight: 200;
+
+}
+
+.searchContent .searchBox{
+    margin-left: 5rem;
+}
+.searchContent .searchBox .btn{
+    font-size: 1.2rem;
+}

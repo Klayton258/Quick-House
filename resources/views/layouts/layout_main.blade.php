@@ -9,15 +9,21 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css"/>
     <link rel="stylesheet" href={{asset('css/app.css')}}>
     <link rel="stylesheet" href={{asset('css/intlTelInput.css')}}>
+    <link rel="stylesheet" href={{asset('css/style.css')}}>
+    <link rel="stylesheet" href={{asset('css/custom.css')}}>
+    <script src="{{ asset('js/currencyFormat.js') }}"></script>
+ 
 
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
     <title>Quick House</title>
+    @livewireStyles
 </head>
 <body>
     @yield('content')
 
+    @livewireScripts
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
