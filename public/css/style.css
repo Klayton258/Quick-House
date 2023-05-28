@@ -1258,14 +1258,18 @@ img{
 }
 
 .property-entry .property-title {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    font-weight: 900;
 }
 
 .property-entry .property-title a {
     text-decoration: none !important;
-    color: #000;
-}
+    color: #333;
 
+}
+.property-entry .property-title a:hover {
+    color: #009573;
+}
 .property-entry .property-location {
     font-size: .9rem;
 }
@@ -1299,7 +1303,7 @@ img{
 }
 
 .property-entry .property-price {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 .property-entry.horizontal .property-thumbnail {
