@@ -19,3 +19,7 @@
 .searchContent .searchBox .btn{
     font-size: 1.2rem;
 }
+.notFound{
+    margin-left: 45%;
+    font-weight: 600;
+}

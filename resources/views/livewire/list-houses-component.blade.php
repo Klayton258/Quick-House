@@ -48,7 +48,11 @@
 
 <div class="site-section site-section-sm">
     <div class="container">
-
+        <div class="notFound">
+            @if($houses->isEmpty())
+                <p>No houses found.</p>
+            @else
+        </div>
         @foreach ($houses as $house)
         <div class="row mb-4">
             <div class="col-md-12">
@@ -122,6 +126,7 @@
                 </div> --}}
                 {{ $houses->links() }}
             </div>
+            @endif
         </div>
 
     </div>
