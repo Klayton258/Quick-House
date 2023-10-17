@@ -6,10 +6,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends \TCG\Voyager\Models\User
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -19,12 +18,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'user_name',
-        'birthday',
+        'name',
         'email',
-        'role',
-        'phone',
-        'username',
         'password',
     ];
 
@@ -38,13 +33,6 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    public function setPasswordAttribute($value)
-    {
-        return $this->attributes['password'] = Hash::needsRehash($value) ? Hash::make($value) : $value;
-    }
-
-    protected $dates = ['deleted_at'];
-
     /**
      * The attributes that should be cast.
      *
@@ -52,6 +40,5 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'role' => \App\Enum\RoleType::class
     ];
 }
