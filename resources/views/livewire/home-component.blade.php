@@ -5,19 +5,21 @@
         @foreach ($houses as $house)
         <div class="col-md-6 col-lg-4 mb-4">
           <div class="property-entry h-100">
-            <a href="property-details.html" class="property-thumbnail">
+            <a href="/details" class="property-thumbnail">
               <div class="offer-type-wrap">
                 <span class="offer-type bg-danger">Sale</span>
                 <span class="offer-type bg-success">Rent</span>
               </div>
-              <img src="images/img_1.jpg" alt="Image" class="img-fluid">
+              <img src="{{ Voyager::image( $house->getThumbnail(json_decode($house->images)[2], 'small') ) }}" alt="Image" class="img-fluid">
             </a>
             <div class="p-4 property-body">
-              <a href="#" class="property-favorite"><span class="icon-heart-o"></span></a>
-              {{-- <h2 class="property-title"><a href="property-details.html">625 S. Berendo St</a></h2> --}}
-              <h2 class="property-title"><a href="property-details.html">{{$house->locations->city}}</a></h2>
-              <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span> 625 S. Berendo St Unit 607 Los Angeles, CA 90005</span>
-              <strong class="property-price text-primary mb-3 d-block text-success">${{$house->sale_price}}</strong>
+              {{-- <a href="#" class="property-favorite"><span class="icon-heart-o"></span></a> --}}
+
+              {{-- <h2 class="property-title"><a href="property-details.html"></a></h2> --}}
+
+              <h2 class="property-title"><a href="/details">{{$house->name}}</a></h2>
+              <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span>{{ $house->short_description }}</span>
+              <strong class="property-price mb-3 d-block">${{ number_format($house->sale_price, 2) }}</strong>
               <ul class="property-specs-wrap mb-3 mb-lg-0">
                 <li>
                   <span class="property-specs">Beds</span>

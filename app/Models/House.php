@@ -7,23 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Livewire\WithPagination;
+use TCG\Voyager\Traits\Resizable;
+use TCG\Voyager\Traits\Spatial;
 
 class House extends Model
 {
     use WithPagination;
     use HasFactory;
     use SoftDeletes;
-
-
-    protected $table = "houses";
-
-
-    protected $fillable = [
-        'id',
-        'name',
-        'city_id'
-
-    ];
+    use Resizable;
+    use Spatial;
 
     public function houseTypes()
     {
@@ -33,5 +26,11 @@ class House extends Model
     public function locations()
     {
         return $this->belongsTo(Location::class, 'city_id');
+    }
+
+    public function setLocationAttribute($value)
+    {
+        $this->attributes['location'] = "$value";
+
     }
 }

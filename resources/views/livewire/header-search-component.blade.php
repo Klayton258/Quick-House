@@ -3,7 +3,7 @@
       <div class="row">
         <form class="form-search col-md-12" style="margin-top: -100px;">
           <div class="row  align-items-end">
-            <div class="col-md-3">
+            <div class="col-md-4">
               <label for="list-types">Listing Types</label>
               <div class="select-wrap">
                 <span class="icon icon-arrow_drop_down"></span>
@@ -15,7 +15,7 @@
                 </select>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
               <label for="offer-types">Offer Type</label>
               <div class="select-wrap">
                 <span class="icon icon-arrow_drop_down"></span>
@@ -27,7 +27,7 @@
                 </select>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
               <label for="select-city">Select City</label>
               <div class="select-wrap">
                 <span class="icon icon-arrow_drop_down"></span>

@@ -1,0 +1,46 @@
+
+:root{
+    --teal: #009573;
+    --cyan: #00D7DF;
+    --gray: #5E5E5E;
+    --white01: #ECECEC;
+    --lightteal: #00c389;
+}
+
+.primary-color {
+    color: var(--lightteal) !important;
+}
+
+
+.nav-button-begin{
+    /* width: 120px; */
+    padding: 5px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 1px solid var(--teal);
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    color: var(--white01) !important;
+}
+.nav-button-begin span{
+    background: var(--teal);
+    color: var(--white01) !important;
+    height: 0%;
+    width: 100%;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 1s;
+}
+.nav-button-begin:hover span{
+    height: 100%;
+}
+.nav-button-begin:hover{
+    border: none;
+}
