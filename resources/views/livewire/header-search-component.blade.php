@@ -1,5 +1,5 @@
 <div class="site-section site-section-sm pb-0">
-    <div class="container">
+  {{--  <div class="container">
       <div class="row">
         <form class="form-search col-md-12" style="margin-top: -100px;">
           <div class="row  align-items-end">
@@ -9,9 +9,9 @@
                 <span class="icon icon-arrow_drop_down"></span>
                 <select name="list-types" id="list-types" class="form-control d-block rounded-0">
                  <option value="all">All</option>
-                  @foreach ($houseTypes as $houseType)
+                   @foreach ($houseTypes as $houseType)
                   <option value="{{$houseType->id}}">{{$houseType->name}}</option>
-                  @endforeach
+                   @endforeach
                 </select>
               </div>
             </div>
@@ -39,12 +39,12 @@
                 </select>
               </div>
             </div>
-            {{-- <div class="col-md-3">
+             <div class="col-md-3">
               <input type="submit" class="btn btn-success text-white btn-block rounded-0" value="Search">
-            </div> --}}
+            </div>
           </div>
         </form>
-      </div>
+      </div> --}}
 
       <div class="row">
         <div class="col-md-12">

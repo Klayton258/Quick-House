@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Livewire\WithPagination;
 use TCG\Voyager\Traits\Resizable;
 use TCG\Voyager\Traits\Spatial;
+use App\Models\Type;
 
 class House extends Model
 {
@@ -18,10 +19,7 @@ class House extends Model
     use Resizable;
     use Spatial;
 
-    public function houseTypes()
-    {
-        return $this->belongsTo(HouseType::class);
-    }
+
 
     public function locations()
     {
@@ -33,4 +31,10 @@ class House extends Model
         $this->attributes['location'] = "$value";
 
     }
+
+    public function types()
+    {
+        return $this->belongsToMany(Type::class, 'house_types');
+    }
+
 }

@@ -7,8 +7,9 @@
           <div class="property-entry h-100">
             <a href="/details" class="property-thumbnail">
               <div class="offer-type-wrap">
-                <span class="offer-type bg-danger">Sale</span>
-                <span class="offer-type bg-success">Rent</span>
+              @foreach ($house->types as $type)
+                <span class="offer-type bg-danger">{{ $type->name }}</span>
+              @endforeach
               </div>
               <img src="{{ Voyager::image( $house->getThumbnail(json_decode($house->images)[2], 'small') ) }}" alt="Image" class="img-fluid">
             </a>
