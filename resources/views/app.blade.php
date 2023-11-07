@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    @livewire('header-search-component')
+    {{-- @livewire('header-search-component') --}}
     @livewire('home-component')
 
    @include('components.footer')
