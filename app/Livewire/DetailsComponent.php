@@ -4,9 +4,12 @@ namespace App\Livewire;
 
 use App\Models\Contact;
 use App\Models\Message;
+use App\Notifications\ContactNotification;
 use Exception;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
+use Illuminate\Support\Facades\Notification;
 class DetailsComponent extends Component
 {
     public $name;
@@ -42,7 +45,21 @@ class DetailsComponent extends Component
             $message->message = $this->message;
             $message->save();
 
+            if($message->contact_email == $contact->email){
+
+                $details =[
+                    'name' => $contact->name,
+                    'email' => $contact->email,
+                    'phone' => $contact->phone,
+                    'message' => $message->message,
+                ];
+            }
+
+            Notification::send($contact,
+             new ContactNotification($details));
+
             session()->flash('message', 'The message was sent successfully');
+            
         } catch (Exception $e) {
             session()->flash('error', 'The message was not sent: ' . $e->getMessage());
         }
