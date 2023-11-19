@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\MobileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('/houses', [MobileController::class, 'houses']);
+
+Route::get('/house/{id}', [MobileController::class, 'show']);
+
+Route::post('/create/user',[ClientController::class, 'signup']);
+
+Route::post('/login/user',[ClientController::class, 'loginUser']);
