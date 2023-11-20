@@ -1,5 +1,5 @@
 <div>
-    <div class="site-blocks-cover inner-page-cover overlay" style="background-image: url(images/hero_bg_2.jpg);"
+    {{-- <div class="site-blocks-cover inner-page-cover overlay" style="background-image: url(images/hero_bg_2.jpg);"
         data-aos="fade" data-stellar-background-ratio="0.5">
         <div class="container">
             <div class="row align-items-center justify-content-center text-center">
@@ -11,7 +11,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="site-section site-section-sm">
         <div class="container">
@@ -19,40 +19,58 @@
                 <div class="col-lg-8">
                     <div>
                         <div class="slide-one-item home-slider owl-carousel">
-                            <div><img src="images/hero_bg_1.jpg" alt="Image" class="img-fluid"></div>
-                            <div><img src="images/hero_bg_2.jpg" alt="Image" class="img-fluid"></div>
-                            <div><img src="images/hero_bg_3.jpg" alt="Image" class="img-fluid"></div>
+                            @foreach (json_decode($house->images) as $image)
+                                <img src="{{ Voyager::image( $image, 'small') }}" alt="Image" class="img-fluid">
+                            @endforeach
                         </div>
                     </div>
                     <div class="bg-white property-body border-bottom border-left border-right">
+                        <h2 class="property-title">{{$house->name}}</h2>
                         <div class="row mb-5">
                             <div class="col-md-6">
-                                <strong class="text-success h1 mb-3">$1,000,500</strong>
+                                 @if ($house->sale_price !=null)
+                                 <p></p>
+                                    <span class="h5 mb-2 text-black">Sale Price:</span> <strong class="property-price">${{ number_format($house->sale_price, 2) }}</strong>
+                                 </p>
+                                 @endif
+                                 @if ($house->rent_price !=null)
+                                 <p>
+                                    <span class="h5 mb-2 text-black ">Rent Price:</span>  <strong class="property-price">${{ number_format($house->rent_price, 2) }}</strong>
+                                 </p>
+                                 @endif
                             </div>
                             <div class="col-md-6">
                                 <ul class="property-specs-wrap mb-3 mb-lg-0  float-lg-right">
                                     <li>
                                         <span class="property-specs">Beds</span>
-                                        <span class="property-specs-number">2 <sup>+</sup></span>
+                                        <span class="property-specs-number">{{$house->wc}} <sup>+</sup></span>
 
                                     </li>
                                     <li>
                                         <span class="property-specs">Baths</span>
-                                        <span class="property-specs-number">2</span>
+                                        <span class="property-specs-number">{{$house->rooms}}</span>
 
                                     </li>
-                                    <li>
+                                    {{-- <li>
                                         <span class="property-specs">SQ FT</span>
                                         <span class="property-specs-number">7,000</span>
 
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </div>
                         </div>
                         <div class="row mb-5">
                             <div class="col-md-6 col-lg-4 text-center border-bottom border-top py-3">
                                 <span class="d-inline-block text-black mb-0 caption-text">Home Type</span>
-                                <strong class="d-block">Condo</strong>
+                                @foreach ($house->types as $type)
+                                @if ($type->name =="Rent")
+                                <strong class="d-block text-success">{{ $type->name }}</strong>
+                                  @elseif ($type->name =="Sale")
+                                  <strong class="d-block  text-danger">{{ $type->name }}</strong>
+                                  @elseif ($type->name =="Project")
+                                  <strong class="d-block  text-primary">{{ $type->name }}</strong>
+                                @endif
+                                @endforeach
                             </div>
                             <div class="col-md-6 col-lg-4 text-center border-bottom border-top py-3">
                                 <span class="d-inline-block text-black mb-0 caption-text">Year Built</span>
@@ -64,68 +82,18 @@
                             </div>
                         </div>
                         <h2 class="h4 text-black">More Info</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aperiam perferendis
-                            deleniti vitae asperiores accusamus tempora facilis sapiente, quas! Quos asperiores alias
-                            fugiat sunt tempora molestias quo deserunt similique sequi.</p>
-                        <p>Nisi voluptatum error ipsum repudiandae, autem deleniti, velit dolorem enim quaerat rerum
-                            incidunt sed, qui ducimus! Tempora architecto non, eligendi vitae dolorem laudantium dolore
-                            blanditiis assumenda in eos hic unde.</p>
-                        <p>Voluptatum debitis cupiditate vero tempora error fugit aspernatur sint veniam laboriosam
-                            eaque eum, et hic odio quibusdam molestias corporis dicta! Beatae id magni, laudantium nulla
-                            iure ea sunt aliquam. A.</p>
-
+                            {{$house->description}}
                         <div class="row no-gutters mt-5">
                             <div class="col-12">
                                 <h2 class="h4 text-black mb-3">Gallery</h2>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <a href="images/img_1.jpg" class="image-popup gal-item"><img src="images/img_1.jpg"
-                                        alt="Image" class="img-fluid"></a>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <a href="images/img_2.jpg" class="image-popup gal-item"><img src="images/img_2.jpg"
-                                        alt="Image" class="img-fluid"></a>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <a href="images/img_3.jpg" class="image-popup gal-item"><img src="images/img_3.jpg"
-                                        alt="Image" class="img-fluid"></a>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <a href="images/img_4.jpg" class="image-popup gal-item"><img src="images/img_4.jpg"
-                                        alt="Image" class="img-fluid"></a>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <a href="images/img_5.jpg" class="image-popup gal-item"><img src="images/img_5.jpg"
-                                        alt="Image" class="img-fluid"></a>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <a href="images/img_6.jpg" class="image-popup gal-item"><img src="images/img_6.jpg"
-                                        alt="Image" class="img-fluid"></a>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <a href="images/img_7.jpg" class="image-popup gal-item"><img src="images/img_7.jpg"
-                                        alt="Image" class="img-fluid"></a>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <a href="images/img_8.jpg" class="image-popup gal-item"><img src="images/img_8.jpg"
-                                        alt="Image" class="img-fluid"></a>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <a href="images/img_1.jpg" class="image-popup gal-item"><img src="images/img_1.jpg"
-                                        alt="Image" class="img-fluid"></a>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <a href="images/img_2.jpg" class="image-popup gal-item"><img src="images/img_2.jpg"
-                                        alt="Image" class="img-fluid"></a>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <a href="images/img_3.jpg" class="image-popup gal-item"><img src="images/img_3.jpg"
-                                        alt="Image" class="img-fluid"></a>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <a href="images/img_4.jpg" class="image-popup gal-item"><img src="images/img_4.jpg"
-                                        alt="Image" class="img-fluid"></a>
-                            </div>
+                            @foreach (json_decode($house->images) as $image)
+                                <div class="col-sm-6 col-md-4 col-lg-3">
+                                    <a href="{{ Voyager::image($image) }}" class="image-popup gal-item">
+                                        <img src="{{ Voyager::image($image, 'small') }}" alt="Image" class="img-fluid">
+                                    </a>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -167,12 +135,12 @@
                         </form>
                     </div>
 
-                    <div class="bg-white widget border rounded">
+                    {{-- <div class="bg-white widget border rounded">
                         <h3 class="h4 text-black widget-title mb-3">Paragraph</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit qui explicabo, libero nam,
                             saepe eligendi. Molestias maiores illum error rerum. Exercitationem ullam saepe, minus,
                             reiciendis ducimus quis. Illo, quisquam, veritatis.</p>
-                    </div>
+                    </div> --}}
 
                 </div>
 
@@ -192,116 +160,60 @@
             </div>
 
             <div class="row mb-5">
+                @foreach ($relatedHouses as $relatedHouse)
+                {{-- {{dd( $house->type_id);}} --}}
                 <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="property-entry h-100">
-                        <a href="property-details.html" class="property-thumbnail">
-                            <div class="offer-type-wrap">
-                                <span class="offer-type bg-danger">Sale</span>
-                                <span class="offer-type bg-success">Rent</span>
-                            </div>
-                            <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-                        </a>
-                        <div class="p-4 property-body">
-                            <a href="#" class="property-favorite"><span class="icon-heart-o"></span></a>
-                            <h2 class="property-title"><a href="property-details.html">625 S. Berendo St</a></h2>
-                            <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span>
-                                625 S. Berendo St Unit 607 Los Angeles, CA 90005</span>
-                            <strong class="property-price text-primary mb-3 d-block text-success">$2,265,500</strong>
-                            <ul class="property-specs-wrap mb-3 mb-lg-0">
-                                <li>
-                                    <span class="property-specs">Beds</span>
-                                    <span class="property-specs-number">2 <sup>+</sup></span>
+                  <div class="property-entry h-100">
+                    <a href="{{route('house.details',['id'=>Crypt::encrypt($relatedHouse->id)])}}" class="property-thumbnail">
+                      <div class="offer-type-wrap">
+                      @foreach ($relatedHouse->types as $type)
+                      @if ($type->name =="Rent")
+                        <span class="offer-type bg-success">{{ $type->name }}</span>
+                        @elseif ($type->name =="Sale")
+                          <span class="offer-type bg-danger">{{ $type->name }}</span>
+                          @elseif ($type->name =="Project")
+                          <span class="offer-type bg-primary">{{ $type->name }}</span>
+                      @endif
+                      @endforeach
+                      </div>
+                      <img src="{{ Voyager::image( $relatedHouse->getThumbnail(json_decode($relatedHouse->images)[2], 'small') ) }}" alt="Image" class="img-fluid">
+                    </a>
+                    <div class="p-4 property-body">
+                      {{-- <a href="#" class="property-favorite"><span class="icon-heart-o"></span></a> --}}
 
-                                </li>
-                                <li>
-                                    <span class="property-specs">Baths</span>
-                                    <span class="property-specs-number">2</span>
+                      {{-- <h2 class="property-title"><a href="property-details.html"></a></h2> --}}
 
-                                </li>
-                                <li>
-                                    <span class="property-specs">SQ FT</span>
-                                    <span class="property-specs-number">7,000</span>
+                      <h2 class="property-title"><a href="/details">{{$relatedHouse->name}}</a></h2>
+                      <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span>{{ $relatedHouse->short_description }}</span>
+                      @if ($relatedHouse->sale_price !=null)
+                      <strong class="property-price mb-3 d-block">${{ number_format($relatedHouse->sale_price, 2) }}</strong>
+                      @else
+                      <strong class="property-price mb-3 d-block">${{ number_format($relatedHouse->rent_price, 2) }}</strong>
+                      @endif
+                      <ul class="property-specs-wrap mb-3 mb-lg-0">
+                        <li>
+                          <span class="property-specs">Beds</span>
+                          <span class="property-specs-number">{{$relatedHouse->rooms}} <sup>+</sup></span>
 
-                                </li>
-                            </ul>
+                        </li>
+                        <li>
+                          <span class="property-specs">Baths</span>
+                          <span class="property-specs-number">{{$relatedHouse->wc}}</span>
 
-                        </div>
+                        </li>
+                        <li>
+                          <span class="property-specs">SQ FT</span>
+                          <span class="property-specs-number">7,000</span>
+
+                        </li>
+                      </ul>
+
                     </div>
+                  </div>
                 </div>
-
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="property-entry h-100">
-                        <a href="property-details.html" class="property-thumbnail">
-                            <div class="offer-type-wrap">
-                                <span class="offer-type bg-danger">Sale</span>
-                                <span class="offer-type bg-success">Rent</span>
-                            </div>
-                            <img src="images/img_2.jpg" alt="Image" class="img-fluid">
-                        </a>
-                        <div class="p-4 property-body">
-                            <a href="#" class="property-favorite active"><span class="icon-heart-o"></span></a>
-                            <h2 class="property-title"><a href="property-details.html">871 Crenshaw Blvd</a></h2>
-                            <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span> 1
-                                New York Ave, Warners Bay, NSW 2282</span>
-                            <strong class="property-price text-primary mb-3 d-block text-success">$2,265,500</strong>
-                            <ul class="property-specs-wrap mb-3 mb-lg-0">
-                                <li>
-                                    <span class="property-specs">Beds</span>
-                                    <span class="property-specs-number">2 <sup>+</sup></span>
-
-                                </li>
-                                <li>
-                                    <span class="property-specs">Baths</span>
-                                    <span class="property-specs-number">2</span>
-
-                                </li>
-                                <li>
-                                    <span class="property-specs">SQ FT</span>
-                                    <span class="property-specs-number">1,620</span>
-
-                                </li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="property-entry h-100">
-                        <a href="property-details.html" class="property-thumbnail">
-                            <div class="offer-type-wrap">
-                                <span class="offer-type bg-info">Lease</span>
-                            </div>
-                            <img src="images/img_3.jpg" alt="Image" class="img-fluid">
-                        </a>
-                        <div class="p-4 property-body">
-                            <a href="#" class="property-favorite"><span class="icon-heart-o"></span></a>
-                            <h2 class="property-title"><a href="property-details.html">853 S Lucerne Blvd</a></h2>
-                            <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span>
-                                853 S Lucerne Blvd Unit 101 Los Angeles, CA 90005</span>
-                            <strong class="property-price text-primary mb-3 d-block text-success">$2,265,500</strong>
-                            <ul class="property-specs-wrap mb-3 mb-lg-0">
-                                <li>
-                                    <span class="property-specs">Beds</span>
-                                    <span class="property-specs-number">2 <sup>+</sup></span>
-
-                                </li>
-                                <li>
-                                    <span class="property-specs">Baths</span>
-                                    <span class="property-specs-number">2</span>
-
-                                </li>
-                                <li>
-                                    <span class="property-specs">SQ FT</span>
-                                    <span class="property-specs-number">5,500</span>
-
-                                </li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
+
         </div>
 
 

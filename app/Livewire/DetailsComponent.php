@@ -3,19 +3,31 @@
 namespace App\Livewire;
 
 use App\Models\Contact;
+use App\Models\House;
 use App\Models\Message;
 use App\Notifications\ContactNotification;
 use Exception;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 use Illuminate\Support\Facades\Notification;
+use Yoeunes\Toastr\Facades\Toastr;
+
+
 class DetailsComponent extends Component
 {
+    // protected $listeners =['refreshComponent'=> '$refresh'];//this is a event
     public $name;
     public $email;
     public $phone;
     public $message;
+    public $id;
+
+    public function mount($id)
+    {
+        $this->id =  Crypt::decrypt($id);
+    }
 
     public function storeMessage()
     {
@@ -45,6 +57,12 @@ class DetailsComponent extends Component
             $message->message = $this->message;
             $message->save();
 
+            // $this->emitTo('livewire.details-component', 'refreshComponent');
+
+            toastr()->success('Data has been saved successfully!', 'Congrats');
+            session()->flash('message', 'The message was sent successfully');
+
+
             if($message->contact_email == $contact->email){
 
                 $details =[
@@ -55,12 +73,19 @@ class DetailsComponent extends Component
                 ];
             }
 
-            Notification::send($contact,
+           $notify = Notification::send($contact,
              new ContactNotification($details));
 
-            session()->flash('message', 'The message was sent successfully');
-            
+            if($notify)
+            {
+                Toastr::success('The message has been sent successfully', 'Congrats');
+                session()->flash('emailmessage', 'The message was sent successfully');
+            }
+
+
+
         } catch (Exception $e) {
+            Toastr::error('Oops! Something went wrong!');
             session()->flash('error', 'The message was not sent: ' . $e->getMessage());
         }
     }
@@ -68,6 +93,25 @@ class DetailsComponent extends Component
 
     public function render()
     {
-        return view('livewire.details-component')->extends('layouts.layout-livewire');
+        $house = House::where('id', $this->id)->with('types')->first();
+
+        // Get the types of the current house
+        $types = $house->types;
+
+        // Get related houses based on types
+        $relatedHouses = House::whereHas('types', function ($query) use ($types) {
+            $query->whereIn('types.id', $types->pluck('id'));
+        })
+        ->where('id', '!=', $this->id) // Exclude the current house
+        ->with('types') // Load types for related houses
+        ->get()->take(3);
+
+        // dd($relatedHouses);
+
+        return view('livewire.details-component',
+        compact(
+            'house',
+            'relatedHouses',
+        ),)->extends('layouts.layout-livewire');
     }
 }

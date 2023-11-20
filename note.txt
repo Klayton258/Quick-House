@@ -1,0 +1,28 @@
+<a href="{{route('product.details',['slug'=>$product->slug])}}">
+
+
+<img src="{{ Voyager::image( $house->getThumbnail(json_decode($house->images)[2], 'small') ) }}" alt="Image" class="img-fluid">
+
+<script>
+console.log("This is a success");
+toastr.success(' {{Session::get("message")}}');
+</script>
+@if (Session::has('message'))
+<script>
+    console.log("This is a success");
+    toastr.success(' {{Session::get("message")}}');
+</script>
+@endif
+
+@if (Session::has('error'))
+<script>
+ console.log("This is a error");
+toastr.error(' {{Session::get("error")}}');
+</script>
+@endif
+@if (Session::has('emailmessage'))
+<script>
+console.log("This is a success email");
+toastr.success(' {{Session::get("emailmessage")}}');
+</script>
+@endif

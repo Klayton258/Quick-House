@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('app');
 });
 
-Route::get('/details',DetailsComponent::class)->name('details');
+Route::get('/details/{id}',DetailsComponent::class)->name('house.details');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

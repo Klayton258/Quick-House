@@ -33,13 +33,15 @@
             {{-- {{dd( $house->type_id);}} --}}
             <div class="col-md-6 col-lg-4 mb-4">
               <div class="property-entry h-100">
-                <a href="/details" class="property-thumbnail">
+                <a href="{{route('house.details',['id'=>Crypt::encrypt($house->id)])}}" class="property-thumbnail">
                   <div class="offer-type-wrap">
                   @foreach ($house->types as $type)
                   @if ($type->name =="Rent")
                     <span class="offer-type bg-success">{{ $type->name }}</span>
                     @elseif ($type->name =="Sale")
                       <span class="offer-type bg-danger">{{ $type->name }}</span>
+                      @elseif ($type->name =="Project")
+                      <span class="offer-type bg-primary">{{ $type->name }}</span>
                   @endif
                   @endforeach
                   </div>
@@ -52,7 +54,11 @@
 
                   <h2 class="property-title"><a href="/details">{{$house->name}}</a></h2>
                   <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span>{{ $house->short_description }}</span>
+                  @if ($house->sale_price !=null)
                   <strong class="property-price mb-3 d-block">${{ number_format($house->sale_price, 2) }}</strong>
+                  @else
+                  <strong class="property-price mb-3 d-block">${{ number_format($house->rent_price, 2) }}</strong>
+                  @endif
                   <ul class="property-specs-wrap mb-3 mb-lg-0">
                     <li>
                       <span class="property-specs">Beds</span>
