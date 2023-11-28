@@ -275,6 +275,16 @@ a {
   border-bottom: none;
   position: absolute;
   z-index: 99; }
+
+/*=================Define a custom navbar styling==============*/
+.site-custom-navbar {
+    margin-bottom: 0px; /* Remove bottom margin */
+    width: 100%; /* Set full width */
+    border-bottom: none; /* Remove bottom border */
+    position: absolute; /* Position absolute */
+    /* z-index: 99; */ /* Remove z-index */
+}
+/*==========================End=========================*/
   .site-navbar .site-logo {
     font-weight: 200; }
     .site-navbar .site-logo a {

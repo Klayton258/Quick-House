@@ -34,7 +34,7 @@
 <body>
     <div class="site-loader"></div>
 
-    @include('components.nav')
+    @include('components.custom-nav')
     @yield('content')
     @section('title', 'Home')
     @section('content')
