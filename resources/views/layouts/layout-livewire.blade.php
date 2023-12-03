@@ -60,5 +60,6 @@
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @livewireScripts
     @stack('scripts')
+    {!! Toastr::message() !!}
 </body>
 </html>

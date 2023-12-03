@@ -2,7 +2,7 @@
 
 use App\Livewire\DetailsComponent;
 use App\Livewire\HomeComponent;
-use Illuminate\Support\Facades\Route;
+use Brian2694\Toastr\Toastr;use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('app');
+    Toastr::success('Messages in here', 'Title', ["positionClass" => "toast-top-center"]);
+
+    return view('app') ;
 });
 
 Route::get('/details/{id}',DetailsComponent::class)->name('house.details');

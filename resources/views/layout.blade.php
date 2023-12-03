@@ -52,5 +52,6 @@
             integrity="sha512-f5HTYZYTDZelxS7LEQYv8ppMHTZ6JJWglzeQmr0CVTS70vJgaJiIO15ALqI7bhsracojbXkezUIL+35UXwwGrQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @livewireScripts
+    {!! Toastr::message() !!}
 </body>
 </html>
